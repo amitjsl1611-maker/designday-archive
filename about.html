@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — DesignDay.co</title>
+<meta name="description" content="What DesignDay was, why it was founded, and who built it. Five years of design community in India.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About — DesignDay.co">
+<meta property="og:description" content="Five years, 35 editions, one community.">
+<meta property="og:image" content="assets/favicon/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
+<style>
+/* ── tokens ─────────────────────────────────────────────── */
+:root{
+  --paper:   #FFFFFF;
+  --paper-2: #F4F3F1;
+  --ink:     #1A1916;
+  --ink-2:   #57564F;
+  --ink-3:   #8E8D85;
+  --accent:  #E24866;
+  --gold:    #FBC02D;
+  --green:   #74C044;
+  --line:    rgba(26,25,22,.12);
+  --line-2:  rgba(26,25,22,.20);
+  --sans:    'Schibsted Grotesk', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+  --gut:     clamp(20px, 5vw, 80px);
+  --nav-h:   68px;
+  --ease:    cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+::selection{background:var(--ink);color:var(--paper);}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* ── nav ─────────────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px var(--gut);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+}
+.brand-logo{height:53px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,32px);}
+.nav-links a{font-size:15px;font-weight:500;color:var(--ink-2);transition:color .16s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.active{color:var(--ink);font-weight:600;}
+
+/* ── shared btn ─────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+  font-size:15px;font-weight:600;padding:13px 24px;transition:.22s var(--ease);
+}
+.btn-ghost{border:1px solid var(--line-2);}
+.btn-ghost:hover{background:var(--paper-2);}
+.btn-green{background:#2E8B23;color:#fff !important;font-weight:700;}
+.btn-green:hover{background:#256f1c;}
+.nav-links .nav-cta{padding:10px 18px;font-size:14px;font-weight:700;}
+
+/* ── page header ─────────────────────────────────────────── */
+.page-header{
+  display:grid;grid-template-columns:3fr 2fr;align-items:end;
+  gap:0 clamp(40px,6vw,80px);
+  padding:clamp(56px,8vh,96px) var(--gut) clamp(40px,5vh,64px);
+  border-bottom:1px solid var(--line);
+}
+.page-eyebrow{
+  grid-column:1 / -1;
+  font-family:var(--mono);font-size:12px;color:var(--ink-3);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;
+}
+.page-title{
+  font-size:clamp(32px,5vw,68px);font-weight:600;
+  letter-spacing:-.035em;line-height:1.02;
+}
+.page-title .title-accent{color:var(--accent);}
+.page-subtitle{
+  font-size:clamp(17px,1.6vw,21px);color:var(--ink-2);
+  line-height:1.65;max-width:52ch;align-self:end;padding-bottom:4px;
+  text-align:right;
+}
+
+/* ── WHAT section ────────────────────────────────────────── */
+.section-what{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--line);
+}
+.what-left{
+  padding:clamp(48px,7vh,80px) var(--gut);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:28px;
+}
+.section-label{
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.what-left h2{
+  font-size:clamp(28px,3vw,42px);font-weight:700;
+  letter-spacing:-.03em;line-height:1.1;
+}
+.what-left p{font-size:16px;color:var(--ink-2);line-height:1.75;max-width:48ch;}
+
+/* stats grid */
+.stats-grid{display:flex;}
+.stats-box{
+  width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+}
+.stat-cell{
+  padding:clamp(28px,4vh,44px) clamp(20px,2.5vw,36px);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:6px;
+}
+.stat-cell:nth-child(2),.stat-cell:nth-child(4),.stat-cell:nth-child(6){border-right:none;}
+.stat-cell:nth-child(5),.stat-cell:nth-child(6){border-bottom:none;}
+.stat-num{
+  font-size:clamp(36px,4vw,52px);font-weight:800;
+  letter-spacing:-.04em;line-height:1;color:var(--ink);
+}
+.stat-num .plus{color:var(--accent);}
+.stat-lbl{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.07em;}
+
+/* ── WHY section ─────────────────────────────────────────── */
+.section-why{
+  padding:clamp(56px,8vh,96px) var(--gut);
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto;
+  column-gap:clamp(40px,6vw,96px);
+  row-gap:24px;
+}
+.why-header{grid-column:1;display:flex;flex-direction:column;gap:16px;}
+.why-header h2{
+  font-size:clamp(26px,2.8vw,38px);font-weight:700;
+  letter-spacing:-.03em;line-height:1.15;
+}
+.why-paras{grid-column:1;grid-row:2;display:flex;flex-direction:column;gap:20px;}
+.why-paras p{font-size:16px;color:var(--ink-2);line-height:1.75;max-width:52ch;}
+.why-right{grid-column:2;grid-row:2;display:flex;flex-direction:column;align-self:start;}
+.why-mk{
+  width:38px;height:38px;border-radius:50%;background:var(--green);
+  display:grid;place-items:center;margin-bottom:20px;
+}
+.why-mk svg{width:20px;height:20px;color:var(--paper);}
+.why-quote{
+  padding:0;
+  font-size:clamp(19px,1.8vw,24px);color:var(--ink);line-height:1.55;
+  font-weight:700;font-style:normal;
+}
+.why-quote footer{
+  margin-top:16px;font-size:13px;color:var(--ink);
+  font-family:var(--mono);font-weight:400;
+}
+/* CTA section — homepage archive style */
+.section-cta{position:relative;padding:clamp(80px,13vw,190px) var(--gut);text-align:center;overflow:hidden;border-bottom:1px solid var(--line);}
+.section-cta .blob{position:absolute;top:50%;left:50%;width:min(560px,80vw);transform:translate(-50%,-50%);opacity:.18;z-index:0;color:var(--gold);}
+.section-cta .inner{position:relative;z-index:1;}
+.section-cta .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--ink-3);margin-bottom:26px;}
+.section-cta h2{font-size:clamp(32px,5.4vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.02;max-width:16ch;margin:0 auto;}
+.section-cta p{margin:24px auto 0;max-width:50ch;color:var(--ink-2);font-size:clamp(16px,1.5vw,19px);}
+.cta-act{margin-top:38px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ── VOLUNTEERS section ──────────────────────────────────── */
+.section-vol{
+  padding:clamp(56px,8vh,96px) var(--gut);
+  border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:32px;
+}
+/* tabs — underline style matching events.html */
+.vol-tabs{
+  display:flex;gap:32px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:0;
+}
+.vol-tab{
+  font-family:var(--sans);font-size:15px;font-weight:500;color:var(--ink-3);
+  padding:0 0 16px;background:transparent;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  display:flex;align-items:center;gap:8px;
+  transition:color .18s var(--ease);
+}
+.vol-tab:hover{color:var(--ink);}
+.vol-tab.active{color:var(--ink);font-weight:700;border-bottom-color:var(--ink);}
+.vol-tab .soon-badge{
+  font-size:11px;font-weight:500;color:var(--ink-3);
+  background:var(--paper-2);border-radius:4px;padding:2px 7px;
+}
+/* carousel */
+.vol-carousel{position:relative;}
+.vol-track-outer{overflow:hidden;}
+.vol-track{display:flex;gap:16px;transition:transform .45s var(--ease);}
+.vol-panels{position:relative;}
+.vol-panel{display:none;}
+.vol-panel.active{display:block;}
+.vol-card{
+  flex:0 0 calc(16.666% - 14px);
+  display:flex;flex-direction:column;
+  overflow:visible;background:none;border:none;border-radius:0;
+}
+.vol-card .vol-avatar-svg{
+  width:100%;display:block;
+  border:1px solid var(--line-2);border-radius:8px;
+}
+.vol-info{background:transparent;padding:10px 2px 0;}
+.vol-info .vol-name{display:block;font-size:13px;font-weight:600;color:var(--ink);}
+.vol-info .vol-role{display:block;font-size:10px;color:var(--ink-3);font-family:var(--mono);margin-top:3px;letter-spacing:.04em;text-transform:uppercase;}
+/* arrow buttons */
+.vol-arrows{display:flex;gap:8px;margin-top:24px;}
+.vol-arrow{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--line-2);background:var(--paper);
+  cursor:pointer;display:grid;place-items:center;
+  transition:background .18s var(--ease);font-size:16px;color:var(--ink);
+}
+.vol-arrow:hover{background:var(--paper-2);}
+.vol-arrow:disabled{opacity:.3;pointer-events:none;}
+.vol-soon{
+  text-align:center;
+  font-family:var(--mono);font-size:12px;color:var(--ink-3);
+  letter-spacing:.06em;text-transform:uppercase;
+  padding-top:8px;
+}
+
+/* ── WHO section ─────────────────────────────────────────── */
+.section-who{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--line);
+}
+.who-portrait{
+  background-color:var(--paper);
+  background-size:auto 85%;background-position:center bottom;background-repeat:no-repeat;
+  min-height:520px;
+  border-right:1px solid var(--line);
+}
+.who-body{
+  padding:clamp(48px,7vh,80px) var(--gut);
+  display:flex;flex-direction:column;gap:24px;
+}
+.who-body h2{
+  font-size:clamp(28px,3vw,40px);font-weight:700;
+  letter-spacing:-.03em;line-height:1.1;
+}
+.who-body h2 em{font-style:normal;color:var(--accent);}
+.who-body p{font-size:15px;color:var(--ink-2);line-height:1.75;max-width:52ch;}
+.who-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;}
+.who-links a{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line-2);border-radius:999px;
+  padding:8px 16px;transition:.18s var(--ease);
+}
+.who-links a:hover{color:var(--ink);background:var(--paper-2);}
+
+/* ── footer ─────────────────────────────────────────────── */
+.footer{
+  padding:clamp(20px,2.5vw,32px) var(--gut);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  border-top:1px solid var(--line);
+}
+.footer-logo{height:28px;width:auto;opacity:.6;}
+.footer-copy{font-family:var(--mono);font-size:12px;letter-spacing:.01em;color:var(--ink-3);}
+.footer-nav{display:flex;gap:20px;}
+.footer-nav a{font-size:13px;color:var(--ink-3);transition:color .16s;}
+.footer-nav a:hover{color:var(--ink);}
+
+/* ── responsive ──────────────────────────────────────────── */
+@media(max-width:860px){
+  .page-header{grid-template-columns:1fr;}
+  .page-subtitle{padding-top:16px;}
+  .section-what,.section-who{grid-template-columns:1fr;}
+  .what-left{border-right:none;border-bottom:1px solid var(--line);}
+  .stats-box{grid-template-columns:1fr 1fr;}
+  .section-why{grid-template-columns:1fr;}
+  .vol-panel.active{grid-template-columns:repeat(3,1fr)!important;}
+  .who-portrait{min-height:320px;border-right:none;border-bottom:1px solid var(--line);}
+}
+@media(max-width:520px){
+  .vol-panel.active{grid-template-columns:repeat(2,1fr)!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- nav -->
+<header class="nav">
+  <a href="index.html" aria-label="DesignDay home">
+    <img class="brand-logo" src="assets/logo/designday-logo.png" alt="DesignDay" width="156" height="44">
+  </a>
+  <nav class="nav-links">
+    <a href="about.html" class="active">About</a>
+    <a href="events.html" class="btn btn-green nav-cta">Browse the archive</a>
+  </nav>
+</header>
+
+<!-- page header -->
+<div class="page-header">
+  <div class="page-eyebrow">About DesignDay</div>
+  <h1 class="page-title">Fifty editions.<br><span class="title-accent">All volunteer driven.</span></h1>
+  <p class="page-subtitle">A curated, free monthly design meetup that ran 35 editions across Bengaluru, Mumbai, and Delhi — from October 2012 to May 2017.</p>
+</div>
+
+<!-- WHAT -->
+<section class="section-what">
+  <div class="what-left">
+    <div class="section-label">What</div>
+    <h2>A room full of designers, every month.</h2>
+    <p>DesignDay was a curated monthly gathering for designers across disciplines. Each edition followed the same format: a design story to get inspired, a skill talk, a hands-on jam, then lunch and real conversation. Entry was ₹100 — just enough to keep it serious.</p>
+    <p>No sponsors controlling the agenda. No sales pitches. Just designers getting better together.</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stats-box">
+      <div class="stat-cell">
+        <div class="stat-num">35</div>
+        <div class="stat-lbl">Bangalore Editions</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5</div>
+        <div class="stat-lbl">Years Active</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">6,000<span class="plus">+</span></div>
+        <div class="stat-lbl">Community Members</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">200<span class="plus">+</span></div>
+        <div class="stat-lbl">Total Sessions</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Cities</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">₹100</div>
+        <div class="stat-lbl">Entry Fee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section-why">
+  <div class="why-header">
+    <div class="section-label">Why</div>
+    <h2>India needed a design community that showed up.</h2>
+  </div>
+  <div class="why-paras">
+    <p>In 2012, India's design ecosystem was fragmented. There were talented designers everywhere — but no regular space where they could come together, share work, learn from each other, and push the craft forward.</p>
+    <p>DesignDay was founded to be that space. Every third Saturday, for five years, it happened. Talks on typography, product thinking, motion, branding, furniture, illustration, UX research, and everything in between. Hands-on workshops. Honest critique. Community that stuck around long after the event ended.</p>
+  </div>
+  <div class="why-right">
+    <blockquote class="why-quote">
+      <div class="why-mk" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M10 7c-3 0-5 2-5 5v5h5v-5H7c0-2 1-3 3-3V7Zm9 0c-3 0-5 2-5 5v5h5v-5h-3c0-2 1-3 3-3V7Z" fill="currentColor"/></svg>
+      </div>
+      "Design in India doesn't have a shortage of talent. It has a shortage of community. DesignDay was our attempt to fix that — one Saturday at a time."
+      <footer>— Aashish Solanki, Founder</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- POWERED BY VOLUNTEERS -->
+<section class="section-vol">
+  <div class="section-label">Powered by Volunteers</div>
+  <div class="vol-tabs" id="volTabs">
+    <button class="vol-tab active" data-city="bengaluru">Bengaluru</button>
+    <button class="vol-tab" data-city="mumbai">Mumbai</button>
+    <button class="vol-tab" data-city="delhi">Delhi</button>
+  </div>
+  <div class="vol-panels">
+
+    <!-- reusable SVG avatar -->
+    <template id="avatarTpl"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg></template>
+
+    <!-- Bengaluru -->
+    <div class="vol-panel active" id="volBengaluru">
+      <div class="vol-carousel">
+        <div class="vol-track-outer"><div class="vol-track">
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Priya Sharma</span><span class="vol-role">Design Lead</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Karthik Nair</span><span class="vol-role">UX Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Deepa Menon</span><span class="vol-role">Brand Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Rohan Gupta</span><span class="vol-role">Product Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Ananya Krishnan</span><span class="vol-role">Motion Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Siddharth Rao</span><span class="vol-role">Visual Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Kavya Reddy</span><span class="vol-role">Typography Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Nikhil Bose</span><span class="vol-role">UX Lead</span></div></div>
+        </div></div>
+        <div class="vol-arrows">
+          <button class="vol-arrow vol-prev" aria-label="Previous" disabled>&#8592;</button>
+          <button class="vol-arrow vol-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mumbai -->
+    <div class="vol-panel" id="volMumbai">
+      <div class="vol-carousel">
+        <div class="vol-track-outer"><div class="vol-track">
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Ritesh Patel</span><span class="vol-role">Interaction Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Meera Joshi</span><span class="vol-role">UX Researcher</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Arjun Singh</span><span class="vol-role">Product Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Pooja Mehta</span><span class="vol-role">Brand Strategist</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Vikram Doshi</span><span class="vol-role">Design Director</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Nisha Pillai</span><span class="vol-role">Service Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Sameera Khan</span><span class="vol-role">Motion Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Dev Chopra</span><span class="vol-role">Interaction Lead</span></div></div>
+        </div></div>
+        <div class="vol-arrows">
+          <button class="vol-arrow vol-prev" aria-label="Previous" disabled>&#8592;</button>
+          <button class="vol-arrow vol-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delhi -->
+    <div class="vol-panel" id="volDelhi">
+      <div class="vol-carousel">
+        <div class="vol-track-outer"><div class="vol-track">
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Aarav Kumar</span><span class="vol-role">Design Consultant</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Shreya Agarwal</span><span class="vol-role">UX Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Manav Bhatia</span><span class="vol-role">Product Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Divya Khanna</span><span class="vol-role">Visual Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Rahul Verma</span><span class="vol-role">Interaction Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Tanya Malhotra</span><span class="vol-role">Brand Designer</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Preethi Nair</span><span class="vol-role">Brand Consultant</span></div></div>
+          <div class="vol-card"><svg class="vol-avatar-svg" viewBox="0 0 200 260" fill="none"><rect width="200" height="260" fill="white"/><circle cx="100" cy="88" r="44" stroke="#C4C2BB" stroke-width="1.5"/><path d="M18 238c0-45.287 36.713-82 82-82s82 36.713 82 82" stroke="#C4C2BB" stroke-width="1.5"/></svg><div class="vol-info"><span class="vol-name">Aryan Seth</span><span class="vol-role">Visual Lead</span></div></div>
+        </div></div>
+        <div class="vol-arrows">
+          <button class="vol-arrow vol-prev" aria-label="Previous" disabled>&#8592;</button>
+          <button class="vol-arrow vol-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="vol-soon">Coming soon</p>
+</section>
+
+<!-- WHO -->
+<section class="section-who">
+  <div class="who-portrait" style="background-image:url('https://aashish.com/assets/aashish-img.png')"></div>
+  <div class="who-body">
+    <div class="section-label">Who</div>
+    <h2>Aashish <em>Solanki</em></h2>
+    <p>Aashish Solanki is an award-winning product designer and design entrepreneur with over 16 years of experience working with Fortune 500 companies and startups across the world. As the Founder and Design Director of NetBramha Studios — one of India's most respected design consultancies — Aashish has helped brands like Google, Microsoft, Unilever, and Cisco rethink how they connect with over a billion users.</p>
+    <p>A relentless advocate for India's design ecosystem, he founded DesignDay.co in 2012 as a monthly gathering to inspire, upskill, and connect designers across disciplines. He teaches design thinking at IIM Bangalore, has spoken at TEDx, UXIndia, and MetaRefresh, and was awarded the Eminent Engineer Award by the Chief Minister of Karnataka.</p>
+    <div class="who-links">
+      <a href="https://aashish.com" target="_blank" rel="noopener noreferrer">aashish.com &#8599;</a>
+      <a href="https://linkedin.com/in/aashishsolanki" target="_blank" rel="noopener noreferrer">LinkedIn &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY CTA -->
+<section class="section-cta">
+  <svg class="blob" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M44,-58C56,-49,63,-33,66,-17C69,-1,68,16,61,30C53,44,40,55,24,62C8,69,-11,71,-28,65C-45,59,-60,44,-67,26C-74,8,-73,-13,-64,-29C-55,-45,-39,-55,-23,-62C-7,-69,9,-72,24,-69C30,-67,38,-64,44,-58Z" transform="translate(100 100)"/></svg>
+  <div class="inner">
+    <div class="eyebrow">The community</div>
+    <h2>Still designing, still showing up.</h2>
+    <p>The DesignDay community lives on. Join thousands of designers who still share ideas, opportunities, and honest feedback.</p>
+    <div class="cta-act">
+      <a href="https://www.meetup.com/designday/" target="_blank" rel="noopener noreferrer" class="btn btn-green">Checkout meetup &#8599;</a>
+      <a href="https://www.facebook.com/DesignDayco" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Facebook community &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="footer">
+  <img class="footer-logo" src="assets/logo/designday-logo.png" alt="DesignDay">
+  <nav class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Archive</a>
+  </nav>
+  <span class="footer-copy">&#169; DesignDay.co &#183; An Aashish Solanki Initiative</span>
+</footer>
+
+<script>
+/* metric counter animation */
+(function(){
+  function animateCounter(el, target, duration){
+    var start = 0;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(ease * target).toLocaleString();
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString();
+    }
+    requestAnimationFrame(step);
+  }
+
+  var cells = document.querySelectorAll('.stat-cell');
+  var observed = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      observed.unobserve(entry.target);
+      var numEl = entry.target.querySelector('.stat-num');
+      if(!numEl) return;
+      var plus = numEl.querySelector('.plus');
+      /* extract leading prefix (non-digit chars before first digit) */
+      var fullText = numEl.childNodes[0] ? numEl.childNodes[0].textContent : '';
+      var prefixMatch = fullText.match(/^([^0-9]*)/);
+      var prefix = prefixMatch ? prefixMatch[1] : '';
+      var raw = numEl.textContent.replace(/[^0-9]/g,'');
+      var target = parseInt(raw, 10);
+      if(isNaN(target)) return;
+      var prefixNode = prefix ? document.createTextNode(prefix) : null;
+      var span = document.createElement('span');
+      span.className = 'cnt';
+      numEl.textContent = '';
+      if(prefixNode) numEl.appendChild(prefixNode);
+      numEl.appendChild(span);
+      if(plus) numEl.appendChild(plus);
+      animateCounter(span, target, 1200);
+    });
+  }, {threshold: 0.3});
+
+  cells.forEach(function(c){ observed.observe(c); });
+})();
+
+/* city tab switcher + carousel */
+(function(){
+  var tabs = document.querySelectorAll('.vol-tab');
+  var panels = document.querySelectorAll('.vol-panel');
+
+  function initCarousel(panel){
+    var track = panel.querySelector('.vol-track');
+    var prevBtn = panel.querySelector('.vol-prev');
+    var nextBtn = panel.querySelector('.vol-next');
+    var cards = panel.querySelectorAll('.vol-card');
+    if(!track || !cards.length) return;
+    var idx = 0;
+    var visible = Math.floor(panel.querySelector('.vol-track-outer').offsetWidth / (cards[0].offsetWidth + 16)) || 4;
+    var max = Math.max(0, cards.length - visible);
+
+    function go(){
+      var cardW = cards[0].offsetWidth + 16;
+      track.style.transform = 'translateX(-' + (idx * cardW) + 'px)';
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx >= max;
+    }
+    prevBtn.addEventListener('click', function(){ if(idx > 0){ idx--; go(); } });
+    nextBtn.addEventListener('click', function(){ if(idx < max){ idx++; go(); } });
+    go();
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      var city = tab.getAttribute('data-city');
+      var id = 'vol' + city.charAt(0).toUpperCase() + city.slice(1);
+      var panel = document.getElementById(id);
+      if(panel){ panel.classList.add('active'); initCarousel(panel); }
+    });
+  });
+
+  /* init first active panel */
+  var firstActive = document.querySelector('.vol-panel.active');
+  if(firstActive) initCarousel(firstActive);
+})();
+</script>
+</body>
+</html>

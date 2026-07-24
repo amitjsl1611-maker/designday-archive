@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:three-fluid-fx.artcreativecode.com)",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "WebFetch(domain:gsap.com)",
+      "Bash(python3 -c ' *)",
+      "WebFetch(domain:skiper-ui.com)",
+      "WebFetch(domain:animmasterlib.dev)",
+      "WebFetch(domain:www.eventbrite.com)",
+      "Bash(python3 -m http.server 4567)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4567/)",
+      "mcp__3ecc047c-b3be-40b0-ae11-dc5387cb3ac5__get_metadata",
+      "mcp__3ecc047c-b3be-40b0-ae11-dc5387cb3ac5__use_figma",
+      "mcp__3ecc047c-b3be-40b0-ae11-dc5387cb3ac5__get_screenshot",
+      "Bash(cp \"/Users/nb-mac59/Downloads/Rethink_Sans/RethinkSans-VariableFont_wght.ttf\" \"/Users/nb-mac59/Documents/Design Day/docvidya/RethinkSans-VariableFont_wght.ttf\")",
+      "Bash(cp \"/Users/nb-mac59/Downloads/Rethink_Sans/RethinkSans-Italic-VariableFont_wght.ttf\" \"/Users/nb-mac59/Documents/Design Day/docvidya/RethinkSans-Italic-VariableFont_wght.ttf\")",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)",
+      "Bash(ls -lt ~/Downloads/ | head -20)",
+      "Bash(cp \"/Users/nb-mac59/Downloads/image 2.png\" \"/Users/nb-mac59/Documents/Design Day/docvidya/doctor.png\")",
+      "Bash(brew install *)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(grep -n \"html,\\\\|html {\\\\|scroll-behavior\\\\|body {\" \"/Users/nb-mac59/Documents/Design Day/docvidya/index.html\")",
+      "Bash(open \"/Users/nb-mac59/Documents/Bio Rapid/index.html\")",
+      "Bash(gh api *)",
+      "Bash(lsof -ti:8765)",
+      "Bash(xargs kill -9)",
+      "Bash(python3 -)"
+    ]
+  }
+}

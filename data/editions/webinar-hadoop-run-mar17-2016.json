@@ -1,0 +1,15 @@
+{
+  "slug": "webinar-hadoop-run-mar17-2016",
+  "num": null,
+  "title": "Live Session — Run Your First Hadoop Program",
+  "theme": "Run Your First Hadoop Program",
+  "date": "Thu, 17 Mar 2016",
+  "year": 2016,
+  "venue": "Online",
+  "city": "Bengaluru",
+  "photo": "poster-general.jpg",
+  "description": "The session agenda is as follows:\n\n• Introduction to Big Data & Hadoop\n\n• Hadoop 2.0 Architecture\n\n• Data Loading via HDFS\n\n• Scripting Commands - MapReduce & Hive\n\n• Live Programming Tutorial\n\n• Future & Possibilities of Big Data\n\nCheers!",
+  "facebook": "",
+  "carousel": false,
+  "gallery": []
+}

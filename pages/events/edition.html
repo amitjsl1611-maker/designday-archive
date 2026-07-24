@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DesignDay.co</title>
+<meta name="description" content="">
+<meta property="og:type" content="website">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="../../assets/favicon/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<link rel="icon" href="../../assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/favicon/icon-180.png">
+<style>
+/* ── tokens ─────────────────────────────────────────────── */
+:root{
+  --paper:   #FFFFFF;
+  --paper-2: #F4F3F1;
+  --ink:     #1A1916;
+  --ink-2:   #57564F;
+  --ink-3:   #8E8D85;
+  --accent:  #E24866;
+  --line:    rgba(26,25,22,.12);
+  --line-2:  rgba(26,25,22,.20);
+  --sans:    'Schibsted Grotesk', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+  --gut:     clamp(20px, 5vw, 80px);
+  --nav-h:   68px;
+  --ease:    cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--ink);color:var(--paper);}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* ── material icons sizing ──────────────────────────────── */
+.mi{font-size:16px!important;line-height:1;vertical-align:middle;}
+
+/* ── nav ─────────────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:100;flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px var(--gut);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+}
+.brand-logo{height:53px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);}
+.nav-links a{font-size:15px;font-weight:500;color:var(--ink-2);transition:color .16s;}
+.nav-links a:hover{color:var(--ink);}
+.btn-green{display:inline-flex;align-items:center;border-radius:999px;background:#2E8B23;color:#fff;font-weight:700;padding:10px 18px;font-size:14px;transition:.22s cubic-bezier(.22,1,.36,1);}
+.btn-green:hover{background:#256f1c;color:#fff;}
+.nav-links .btn-green{color:#fff;padding:10px 18px;font-size:14px;}
+
+/* ── main wrapper: fills viewport below nav ─────────────── */
+.page-main{
+  height:calc(100vh - var(--nav-h));
+  display:flex;flex-direction:column;
+}
+
+/* ── two-column body ─────────────────────────────────────── */
+.page-body{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  flex:1;min-height:0;
+  overflow:hidden;
+}
+
+/* ── LEFT column — all content ───────────────────────────── */
+.col-left{
+  padding:clamp(32px,4vh,56px) clamp(28px,4vw,64px);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:20px;
+  overflow-y:auto;
+}
+
+/* breadcrumb */
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.breadcrumb a{color:var(--ink-2);transition:color .16s;}
+.breadcrumb a:hover{color:var(--ink);}
+.breadcrumb-sep{opacity:.4;}
+.breadcrumb-current{color:var(--ink-3);}
+
+/* title + description */
+.ed-title{
+  font-size:clamp(26px,3vw,44px);font-weight:600;
+  letter-spacing:-.03em;line-height:1.08;
+}
+.ed-desc{
+  font-size:clamp(14px,1.2vw,16px);color:var(--ink-2);
+  line-height:1.75;
+}
+
+/* detail 2×2 grid */
+.detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  height:clamp(120px,13vh,160px);
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.detail-cell{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  padding:10px 16px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.detail-cell:nth-child(2),.detail-cell:nth-child(4){border-right:none;}
+.detail-cell:nth-child(3),.detail-cell:nth-child(4){border-bottom:none;}
+.detail-cell .mi{font-size:14px!important;color:var(--ink-3);}
+.detail-lbl{
+  display:flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9px;color:var(--ink-3);
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.detail-val{
+  font-size:13px;font-weight:500;color:var(--ink);line-height:1.25;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.detail-val.is-theme{color:var(--accent);}
+
+/* facebook button — matches homepage btn-dark pill */
+.btn-fb{
+  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+  font-size:15px;font-weight:600;border-radius:999px;
+  padding:13px 24px;
+  background:var(--ink);color:var(--paper);
+  transition:.22s var(--ease);
+}
+.btn-fb .mi{font-size:16px!important;}
+.btn-fb:hover{background:var(--accent);}
+
+/* ── RIGHT column — gallery ──────────────────────────────── */
+.col-right{position:relative;background:var(--paper-2);overflow:hidden;}
+
+.gallery-stage{
+  position:absolute;inset:0;overflow:hidden;
+  background:var(--paper-2);
+}
+.gallery-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  will-change:transform;
+}
+.gallery-slide.is-enter{animation:slideInRight .55s cubic-bezier(.22,1,.36,1) forwards;}
+.gallery-slide.is-leave{animation:slideOutLeft .55s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes slideInRight{from{transform:translateX(100%);}to{transform:translateX(0);}}
+@keyframes slideOutLeft{from{transform:translateX(0);}to{transform:translateX(-100%);}}
+
+/* no-photo placeholder */
+.gallery-slide.no-photo{
+  background-image:repeating-linear-gradient(
+    135deg,rgba(26,25,22,.04) 0,rgba(26,25,22,.04) 10px,transparent 10px,transparent 20px
+  );
+}
+
+/* progress bar */
+.gallery-progress{
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(255,255,255,.25);z-index:10;
+}
+.gallery-bar{
+  height:100%;width:0;background:#fff;
+  border-radius:0 2px 2px 0;
+}
+
+/* counter */
+.gallery-counter{
+  position:absolute;top:16px;right:16px;z-index:10;
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;
+  color:#fff;background:rgba(0,0,0,.35);
+  padding:4px 10px;border-radius:99px;backdrop-filter:blur(4px);
+}
+
+/* ── bottom nav bar ──────────────────────────────────────── */
+.edition-nav{
+  display:flex;align-items:center;justify-content:center;
+  border-top:1px solid var(--line);
+  background:var(--paper);
+  height:72px;flex-shrink:0;
+  padding:0 var(--gut);gap:8px;
+}
+.enav-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--line-2);border:none;
+  cursor:pointer;padding:0;display:block;
+  text-decoration:none;transition:background .2s,transform .2s;
+  flex-shrink:0;
+}
+.enav-dot:hover{background:var(--ink-2);}
+.enav-dot.current{background:var(--ink);transform:scale(1.3);cursor:default;pointer-events:none;}
+
+/* ── loading / error states ──────────────────────────────── */
+.state{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:12px;
+  font-family:var(--mono);font-size:14px;color:var(--ink-3);
+  padding:80px var(--gut);text-align:center;grid-column:1/-1;
+}
+.state h2{font-family:var(--sans);font-size:clamp(22px,3vw,36px);
+  font-weight:600;color:var(--ink);letter-spacing:-.02em;}
+.state a{
+  margin-top:8px;font-size:13px;color:var(--ink-2);
+  border:1px solid var(--line-2);border-radius:4px;
+  padding:8px 16px;transition:.16s;
+}
+.state a:hover{color:var(--ink);}
+
+/* ── responsive ──────────────────────────────────────────── */
+@media(max-width:860px){
+  .page-main{height:auto;}
+  .page-body{grid-template-columns:1fr;}
+  .col-left{border-right:none;border-bottom:1px solid var(--line);}
+  .col-right{min-height:300px;}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="../../index.html" aria-label="DesignDay home">
+    <img class="brand-logo" src="../../assets/logo/designday-logo.png" alt="DesignDay" width="156" height="44">
+  </a>
+  <nav class="nav-links">
+    <a href="../../about.html">About</a>
+    <a href="../../events.html" class="btn-green">Browse the archive</a>
+  </nav>
+</header>
+
+<main class="page-main">
+  <div class="page-body" id="pageBody" aria-live="polite">
+    <div class="state"><p>Loading edition…</p></div>
+  </div>
+  <nav class="edition-nav" id="editionNav" aria-label="Edition navigation"></nav>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var PHOTOS = '../../assets/photos/';
+
+  var slug = new URLSearchParams(window.location.search).get('slug') || '';
+  if (!slug) { showError('No edition specified.'); return; }
+
+  fetch('../../data/editions/' + slug + '.json', {cache:'no-store'})
+    .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(render)
+    .catch(function () { showError('Edition "' + slug + '" not found.'); });
+
+  function mi(name) {
+    return '<span class="material-icons-round mi">' + name + '</span>';
+  }
+
+  function render(ed) {
+    document.title = ed.title + ' — DesignDay.co';
+    document.querySelector('meta[name="description"]').content = ed.description;
+    document.querySelector('meta[property="og:title"]').content = ed.title + ' — DesignDay.co';
+    document.querySelector('meta[property="og:description"]').content = ed.description;
+
+    /* ── collect photos ── */
+    var photos = [];
+    if (ed.photo) photos.push(ed.photo);
+    if (Array.isArray(ed.gallery)) ed.gallery.slice(0, 4).forEach(function (f) { photos.push(f); });
+
+    /* ── right column: auto-scroll gallery ── */
+    var rightHtml = '<div class="col-right">'
+      + '<div class="gallery-stage" id="galleryStage"></div>'
+      + '<div class="gallery-progress"><div class="gallery-bar" id="galleryBar"></div></div>'
+      + (photos.length > 1 ? '<div class="gallery-counter" id="galleryCounter">1 / ' + photos.length + '</div>' : '')
+      + '</div>';
+
+    /* ── left column: breadcrumb + title + desc + details + fb ── */
+    var detailCells =
+      cell('calendar_today', 'Date',  ed.date,  false)
+      + cell('label',        'Theme', ed.theme, true)
+      + cell('location_on',  'Venue', ed.venue, false)
+      + cell('location_city','City',  ed.city,  false);
+
+    var fbHtml = ed.facebook
+      ? '<a class="btn-fb" href="' + ed.facebook + '" target="_blank" rel="noopener noreferrer">'
+        + mi('open_in_new') + 'View on Facebook</a>'
+      : '';
+
+    var leftHtml = '<div class="col-left">'
+      + '<div class="breadcrumb"><a href="../../events.html">Archive</a>'
+      + '<span class="breadcrumb-sep">/</span>'
+      + '<span class="breadcrumb-current" id="bcTitle">' + ed.title + '</span></div>'
+      + '<h1 class="ed-title">' + ed.title + '</h1>'
+      + '<p class="ed-desc">' + ed.description + '</p>'
+      + '<div class="detail-grid">' + detailCells + '</div>'
+      + fbHtml
+      + '</div>';
+
+    document.getElementById('pageBody').innerHTML = leftHtml + rightHtml;
+
+    buildBottomNav(ed.slug);
+    initGallery(photos);
+  }
+
+  /* ── gallery auto-scroll ── */
+  function initGallery(photos) {
+    var stage = document.getElementById('galleryStage');
+    var bar   = document.getElementById('galleryBar');
+    var counter = document.getElementById('galleryCounter');
+    if (!stage) return;
+
+    var DURATION = 4000; /* ms per slide */
+    var idx = 0;
+    var timer = null;
+    var rafId = null;
+    var startTime = null;
+
+    function makeSlide(photo) {
+      var el = document.createElement('div');
+      el.className = 'gallery-slide' + (photo ? '' : ' no-photo');
+      if (photo) el.style.backgroundImage = 'url(\'' + PHOTOS + photo + '\')';
+      return el;
+    }
+
+    function showSlide(newIdx, animate) {
+      var oldSlide = stage.querySelector('.gallery-slide:not(.is-leave)');
+      var newSlide = makeSlide(photos[newIdx]);
+
+      if (animate && oldSlide) {
+        oldSlide.classList.add('is-leave');
+        oldSlide.addEventListener('animationend', function () { oldSlide.remove(); }, { once: true });
+        newSlide.classList.add('is-enter');
+      }
+
+      stage.appendChild(newSlide);
+      idx = newIdx;
+
+      if (counter) counter.textContent = (idx + 1) + ' / ' + photos.length;
+      startProgress();
+    }
+
+    function startProgress() {
+      if (rafId) cancelAnimationFrame(rafId);
+      startTime = null;
+
+      function tick(ts) {
+        if (!startTime) startTime = ts;
+        var elapsed = ts - startTime;
+        var pct = Math.min(elapsed / DURATION, 1);
+        if (bar) bar.style.width = (pct * 100) + '%';
+
+        if (pct < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          if (photos.length > 1) {
+            showSlide((idx + 1) % photos.length, true);
+          }
+        }
+      }
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    /* initial slide — no animation */
+    showSlide(0, false);
+  }
+
+  function cell(icon, lbl, val, isTheme) {
+    return '<div class="detail-cell">'
+      + '<span class="detail-lbl">' + mi(icon) + lbl + '</span>'
+      + '<span class="detail-val' + (isTheme ? ' is-theme' : '') + '">' + val + '</span>'
+      + '</div>';
+  }
+
+  /* ── bottom dot nav ── */
+  function buildBottomNav(slug) {
+    var nav = document.getElementById('editionNav');
+    if (!window.EDITIONS) { nav.style.display = 'none'; return; }
+
+    var list = window.EDITIONS.filter(function (e) { return !e.gap; });
+    var cur = -1;
+    list.forEach(function (e, i) { if (e.slug === slug) cur = i; });
+    if (cur < 0) { nav.style.display = 'none'; return; }
+
+    /* show a window of up to 7 dots centred on current */
+    var WINDOW = 7;
+    var half = Math.floor(WINDOW / 2);
+    var start = Math.max(0, Math.min(cur - half, list.length - WINDOW));
+    var end   = Math.min(list.length - 1, start + WINDOW - 1);
+
+    var html = '';
+    for (var i = start; i <= end; i++) {
+      var e = list[i];
+      if (i === cur) {
+        html += '<span class="enav-dot current" aria-current="page" title="' + e.title + '"></span>';
+      } else {
+        html += '<a class="enav-dot" href="edition.html?slug=' + e.slug + '" title="' + e.title + '"></a>';
+      }
+    }
+    nav.innerHTML = html;
+  }
+
+  function showError(msg) {
+    document.getElementById('pageBody').innerHTML =
+      '<div class="state"><h2>Edition not found</h2><p>' + msg + '</p>'
+      + '<a href="../../events.html">Browse all editions</a></div>';
+    document.getElementById('editionNav').style.display = 'none';
+  }
+
+})();
+</script>
+
+<script src="../../data/editions.js"></script>
+</body>
+</html>

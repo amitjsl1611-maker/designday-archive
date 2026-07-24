@@ -1,0 +1,15 @@
+{
+  "slug": "pre-meetup-07",
+  "num": null,
+  "title": "Meetup for Bangalore\\",
+  "theme": "Bangalore Designers Meetup",
+  "date": "Sat, 1 Sep 2012",
+  "year": 2012,
+  "venue": "Centre for Internet and Society, Bengaluru",
+  "city": "Bengaluru",
+  "photo": "poster-general.jpg",
+  "description": "Its an informal meetup for designers.\n\nThe agenda is very specific to Web Designers and Frontend Developers:\n\nThe purpose of this meetup is not to have a generic discussion on the topic - but to highlight specific learning techniques in Sass and Compass in order to create usable grid systems for prospective user interface management. Meetup attendees are expected to bring their own laptops - where we will guide you how to install Sass, create a test project and compile Sass into CSS.\n\nCheers,",
+  "facebook": "",
+  "carousel": false,
+  "gallery": []
+}

@@ -1,0 +1,38 @@
+/* ============================================================
+   DesignDay  —  mobile.css
+   Responsive breakpoint overrides, layered on top of index.css.
+   Load this file AFTER index.css so these rules win when their
+   media query is active.
+   ============================================================ */
+
+/* hero: stack the three facts, let the headline wrap naturally */
+@media(max-width:760px){
+  .hero h1 .h1-br{display:none;}
+}
+@media(max-width:680px){
+  .hero{min-height:100svh;}
+  .hero-facts{flex-direction:column;gap:16px;}
+}
+
+/* footer: collapse to a single column */
+@media(max-width:860px){
+  .foot{grid-template-columns:1fr;}
+  .foot-links{justify-content:flex-start;}
+}
+
+/* Un-pin the timeline on small screens or reduced motion: stack as a normal list */
+@media(max-width:860px), (prefers-reduced-motion:reduce){
+  .tl{height:auto!important;}
+  .tl-sticky{position:static;height:auto;display:block;}
+  .tl-left{border-right:none;border-bottom:1px solid var(--line);}
+  .tl-bignum,.tl-years{display:none;}
+  .tl-right{}
+  .tl-step{
+    position:static;opacity:1!important;transform:none!important;pointer-events:auto;
+    border-bottom:1px solid var(--line);
+    min-height:auto;padding:clamp(32px,8vw,52px) var(--gut);
+  }
+  .tl-yr-inline{display:block;font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.02em;}
+  .tl-progress{display:none;}
+  .tl-img{height:min(46vw,300px);}
+}

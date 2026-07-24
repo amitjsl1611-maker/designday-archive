@@ -1,0 +1,15 @@
+{
+  "slug": "webinar-pig-2016",
+  "num": null,
+  "title": "Live Webinar on: Learn Apache Pig with Practical Kit",
+  "theme": "Apache Pig Webinar",
+  "date": "Thu, 8 Dec 2016",
+  "year": 2016,
+  "venue": "Online",
+  "city": "Bengaluru",
+  "photo": "poster-general.jpg",
+  "description": "TOPICS\n\n• What is Big data and Hadoop?\n\n• Hadoop eco system\n\n• Introduction to Pig\n\n• Functions in Pig\n\n• Diagnostic Operators in Pig\n\n• Data Models in Pig\n\n• Operators in Pig\n\n• Joins in Pig\n\n• Extending Pig UDF's\n\nCheers!",
+  "facebook": "",
+  "carousel": false,
+  "gallery": []
+}

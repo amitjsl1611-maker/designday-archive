@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events Archive — DesignDay.co</title>
+<meta name="description" content="Every event from the Bangalore Designers Meetup group — five years of design meetups, workshops, portfolio reviews, and more, from 2012 to 2017.">
+<meta name="theme-color" content="#E24866">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Events Archive — DesignDay.co">
+<meta property="og:description" content="Every event, all in one place. The full archive of DesignDay Bengaluru and the Bangalore Designers Meetup group.">
+<meta property="og:image" content="assets/favicon/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
+<style>
+/* ── tokens (same as index.css) ─────────────────────────── */
+:root{
+  --paper:   #FFFFFF;
+  --paper-2: #F4F3F1;
+  --card:    #FFFFFF;
+  --ink:     #1A1916;
+  --ink-2:   #57564F;
+  --ink-3:   #8E8D85;
+  --accent:  #E24866;
+  --gold:    #FBC02D;
+  --green:   #74C044;
+  --line:    rgba(26,25,22,.12);
+  --line-2:  rgba(26,25,22,.20);
+  --sans:    'Schibsted Grotesk', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+  --gut:     clamp(20px, 5vw, 80px);
+  --nav-h:   68px;
+  --r:       14px;
+  --ease:    cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--ink);color:var(--paper);}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+  font-size:15px;font-weight:600;padding:11px 22px;transition:.22s var(--ease);
+}
+.btn-dark{background:var(--ink);color:var(--paper);}
+.btn-dark:hover{background:var(--accent);}
+.btn-ghost{border:1px solid var(--line-2);color:var(--ink-2);}
+.btn-ghost:hover{background:var(--paper-2);color:var(--ink);}
+.btn-green{background:#2E8B23;color:#fff;font-weight:700;}
+.btn-green:hover{background:#256f1c;}
+
+/* ── nav ─────────────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px var(--gut);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+}
+.brand{display:flex;align-items:center;}
+.brand-logo{height:53px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);}
+.nav-links a{
+  font-size:15px;font-weight:500;color:var(--ink-2);
+  transition:color .16s;position:relative;padding-bottom:2px;
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links .nav-cta{padding:10px 18px;font-size:14px;font-weight:700;color:#fff;}
+
+/* ── page header ─────────────────────────────────────────── */
+.page-header{
+  padding:clamp(48px,8vw,96px) var(--gut) clamp(36px,5vw,56px);
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.page-header-left .eyebrow{margin-bottom:14px;}
+.page-header-left h1{
+  font-size:clamp(32px,5vw,68px);font-weight:600;
+  letter-spacing:-.035em;line-height:1.02;
+}
+.page-header-left h1 em{font-style:normal;color:var(--accent);}
+.page-header-right{
+  font-size:clamp(15px,1.3vw,17px);color:var(--ink-2);
+  max-width:38ch;line-height:1.55;flex-shrink:0;
+}
+
+
+/* ── grid ────────────────────────────────────────────────── */
+.grid-wrap{padding:clamp(28px,4vw,56px) var(--gut);}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  column-gap:clamp(14px,1.6vw,20px);
+  row-gap:clamp(36px,4vw,56px);
+}
+
+/* ── card ────────────────────────────────────────────────── */
+.card{
+  display:flex;flex-direction:column;
+  text-decoration:none;color:var(--ink);
+  transition:transform .22s var(--ease), opacity .5s var(--ease), translate .5s var(--ease);
+  opacity:0;translate:0 28px;
+}
+.card.revealed{opacity:1;translate:0 0;}
+.card:hover{transform:translateY(-4px);}
+.card-img{
+  width:100%;aspect-ratio:4/3;
+  background-size:cover;background-position:center;
+  background-color:var(--paper-2);
+  position:relative;overflow:hidden;
+  border-radius:12px;
+}
+.card-img-inner{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform .5s var(--ease);
+}
+.card:hover .card-img-inner{transform:scale(1.04);}
+.card.gap .card-img{background-image:repeating-linear-gradient(
+  135deg,
+  var(--paper-2) 0px,var(--paper-2) 8px,
+  transparent 8px,transparent 16px
+);}
+
+/* card body */
+.card-body{padding:14px 2px 0;display:flex;flex-direction:column;gap:8px;}
+.card h3{
+  font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.25;
+}
+
+/* metadata row */
+.card-meta{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:0;
+  font-family:var(--mono);font-size:12px;color:var(--ink-3);
+}
+.card-meta-item{
+  display:flex;align-items:center;gap:5px;
+  padding-right:14px;margin-right:14px;
+  border-right:1px solid var(--line-2);
+}
+.card-meta-item:last-child{border-right:none;padding-right:0;margin-right:0;}
+.card-meta-icon{width:13px;height:13px;flex-shrink:0;opacity:.55;}
+
+/* hidden by filter */
+.card.hidden{display:none;}
+
+/* no results */
+.no-results{
+  grid-column:1/-1;padding:64px 0;text-align:center;
+  font-family:var(--mono);font-size:14px;color:var(--ink-3);
+}
+
+/* ── community CTA ───────────────────────────────────────── */
+.section-cta{position:relative;padding:clamp(80px,13vw,190px) var(--gut);text-align:center;overflow:hidden;border-top:1px solid var(--line);}
+.section-cta .blob{position:absolute;top:50%;left:50%;width:min(560px,80vw);transform:translate(-50%,-50%);opacity:.18;z-index:0;color:#FBC02D;}
+.section-cta .inner{position:relative;z-index:1;}
+.section-cta .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--ink-3);margin-bottom:26px;}
+.section-cta h2{font-size:clamp(32px,5.4vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.02;max-width:16ch;margin:0 auto;}
+.section-cta p{margin:24px auto 0;max-width:50ch;color:var(--ink-2);font-size:clamp(16px,1.5vw,19px);}
+.cta-act{margin-top:38px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ── footer ──────────────────────────────────────────────── */
+.foot{
+  padding:clamp(20px,2.5vw,32px) var(--gut);
+  border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.foot-logo{height:28px;width:auto;display:block;opacity:.6;}
+.foot-nav{display:flex;gap:20px;}
+.foot-nav a{font-size:13px;color:var(--ink-3);transition:color .16s;}
+.foot-nav a:hover{color:var(--ink);}
+.foot-copy{font-family:var(--mono);font-size:12px;letter-spacing:.01em;color:var(--ink-3);}
+
+/* ── responsive ──────────────────────────────────────────── */
+@media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:760px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .page-header{flex-direction:column;align-items:flex-start;}
+  .page-header-right{max-width:none;}
+}
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr;}
+  .nav-links a:not(.nav-cta-link){display:none;}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="index.html" class="brand" aria-label="DesignDay home">
+    <img class="brand-logo" src="assets/logo/designday-logo.png" alt="DesignDay" width="156" height="44">
+  </a>
+  <nav class="nav-links">
+    <a href="about.html">About</a>
+    <a href="events.html" class="btn btn-green nav-cta">Browse the archive</a>
+  </nav>
+</header>
+
+<!-- ============ PAGE HEADER ============ -->
+<div class="page-header">
+  <div class="page-header-left">
+    <div class="eyebrow">The full archive</div>
+    <h1><span id="js-event-count">Sixty-five</span> events,<br><em>all in one place.</em></h1>
+  </div>
+  <p class="page-header-right">
+    Every DesignDay session across Bengaluru, Mumbai and Delhi — from February 2012 to May 2017. Talks, workshops, portfolio reviews, webinars, and jams, newest first.
+  </p>
+</div>
+
+<!-- ============ EDITION GRID (built by JS) ============ -->
+<main class="grid-wrap">
+  <div class="grid" id="grid">
+    <!-- cards injected by buildGrid() -->
+    <noscript>
+      <p style="grid-column:1/-1;padding:40px 0;color:#8E8D85;">
+        JavaScript is required to display the edition archive.
+      </p>
+    </noscript>
+  </div>
+</main>
+
+<!-- ============ COMMUNITY CTA ============ -->
+<section class="section-cta">
+  <svg class="blob" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M44,-58C56,-49,63,-33,66,-17C69,-1,68,16,61,30C53,44,40,55,24,62C8,69,-11,71,-28,65C-45,59,-60,44,-67,26C-74,8,-73,-13,-64,-29C-55,-45,-39,-55,-23,-62C-7,-69,9,-72,24,-69C30,-67,38,-64,44,-58Z" transform="translate(100 100)"/></svg>
+  <div class="inner">
+    <div class="eyebrow">The community</div>
+    <h2>Still designing, still showing up.</h2>
+    <p>The DesignDay community lives on. Join thousands of designers who still share ideas, opportunities, and honest feedback.</p>
+    <div class="cta-act">
+      <a href="https://www.meetup.com/designday/" target="_blank" rel="noopener noreferrer" class="btn btn-green">Checkout meetup &#8599;</a>
+      <a href="https://www.facebook.com/DesignDayco" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Facebook community &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <img class="foot-logo" src="assets/logo/designday-logo.png" alt="DesignDay">
+  <nav class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Archive</a>
+  </nav>
+  <div class="foot-copy">© DesignDay.co · An Aashish Solanki initiative</div>
+</footer>
+
+<script src="data/editions.js?v=5"></script>
+<script>
+(function () {
+  'use strict';
+
+  var PHOTOS = 'assets/photos/';
+
+  /* sort all non-gap editions reverse-chronologically (newest first) */
+  var all = window.EDITIONS
+    .filter(function (ed) { return !ed.gap; })
+    .sort(function (a, b) {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+  var grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  all.forEach(function (ed) {
+    /* clean title: use theme, or extract text after "—" in title */
+    var displayName = (ed.theme && ed.theme.length > 5 && ed.theme !== 'Design')
+      ? ed.theme
+      : (ed.title.indexOf('—') !== -1 ? ed.title.split('—').pop().trim() : ed.title);
+
+    var card = document.createElement('a');
+    card.className = 'card';
+    card.href = 'pages/events/edition.html?slug=' + ed.slug;
+    card.setAttribute('aria-label', displayName);
+
+    var imgHtml = ed.photo
+      ? '<div class="card-img"><div class="card-img-inner lazy-bg" data-bg="' + PHOTOS + ed.photo + '" aria-hidden="true"></div></div>'
+      : '<div class="card-img" aria-hidden="true"></div>';
+
+    /* SVG icons */
+    var iconPin  = '<svg class="card-meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5Z"/><circle cx="8" cy="6" r="1.5"/></svg>';
+    var iconTime = '<svg class="card-meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6.5"/><path d="M8 5v3.5l2 1.5"/></svg>';
+    var iconNum  = ed.num ? '<svg class="card-meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M6 8h4M8 6v4"/></svg>' : '';
+
+    var metaItems = ''
+      + '<span class="card-meta-item">' + iconPin + ed.city + '</span>'
+      + '<span class="card-meta-item">' + iconTime + ed.date + '</span>'
+      + (ed.num ? '<span class="card-meta-item">' + iconNum + 'Edition ' + ed.num + '</span>' : '');
+
+    card.innerHTML = imgHtml
+      + '<div class="card-body">'
+      +   '<h3>' + displayName + '</h3>'
+      +   '<div class="card-meta">' + metaItems + '</div>'
+      + '</div>';
+
+    grid.appendChild(card);
+  });
+
+  if (all.length === 0) {
+    var msg = document.createElement('div');
+    msg.className = 'no-results';
+    msg.textContent = 'No editions found.';
+    grid.appendChild(msg);
+  }
+
+  /* ── reveal observer (fade + slide up) ── */
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  /* ── lazy-bg observer (load image when near viewport) ── */
+  var lazyObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var el = e.target;
+        el.style.backgroundImage = 'url("' + el.dataset.bg + '")';
+        el.classList.remove('lazy-bg');
+        lazyObs.unobserve(el);
+      }
+    });
+  }, { rootMargin: '200px 0px' });
+
+  grid.querySelectorAll('.card').forEach(function(card, i) {
+    /* stagger: each card in a row starts slightly later */
+    card.style.transitionDelay = (i % 4) * 60 + 'ms';
+    revealObs.observe(card);
+  });
+  grid.querySelectorAll('.lazy-bg').forEach(function(el) {
+    lazyObs.observe(el);
+  });
+
+  /* update heading count */
+  var countEl = document.getElementById('js-event-count');
+  if (countEl) {
+    var words = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten',
+      'Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty',
+      'Twenty-one','Twenty-two','Twenty-three','Twenty-four','Twenty-five','Twenty-six','Twenty-seven',
+      'Twenty-eight','Twenty-nine','Thirty','Thirty-one','Thirty-two','Thirty-three','Thirty-four',
+      'Thirty-five','Thirty-six','Thirty-seven','Thirty-eight','Thirty-nine','Forty','Forty-one',
+      'Forty-two','Forty-three','Forty-four','Forty-five','Forty-six','Forty-seven','Forty-eight',
+      'Forty-nine','Fifty','Fifty-one','Fifty-two','Fifty-three','Fifty-four','Fifty-five',
+      'Fifty-six','Fifty-seven','Fifty-eight','Fifty-nine','Sixty','Sixty-one','Sixty-two',
+      'Sixty-three','Sixty-four','Sixty-five','Sixty-six','Sixty-seven','Sixty-eight','Sixty-nine','Seventy'];
+    countEl.textContent = (all.length < words.length ? words[all.length] : all.length);
+  }
+
+})();
+</script>
+
+</body>
+</html>

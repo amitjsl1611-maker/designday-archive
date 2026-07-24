@@ -1,0 +1,19 @@
+{
+  "slug": "edition-01",
+  "num": "#01",
+  "title": "First DesignDay.co",
+  "theme": "Biomimicry & Experimental Design",
+  "date": "Sat, 20 Oct 2012",
+  "year": 2012,
+  "venue": "Microsoft Accelerator, Bengaluru",
+  "city": "Bengaluru",
+  "photo": "edition-2012-firstday.jpg",
+  "description": "Unlike past events which have been held from 5pm - 8pm on Saturday evenings, we will be starting at 9am sharp - ending at 2pm! Please be on time so as to get the maximum value out of this first-of-its-kind event :)",
+  "facebook": "",
+  "carousel": false,
+  "gallery": [
+    "edition-2013-rhythm.jpg",
+    "edition-2014-talk.jpg",
+    "edition-2015-mumbai.jpg"
+  ]
+}
