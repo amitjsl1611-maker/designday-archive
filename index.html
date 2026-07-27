@@ -129,7 +129,7 @@
 
   <!-- ── Slingshot cannon DOM ── -->
   <svg class="pricing-hero__canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:8;overflow:visible;"></svg>
-  <div class="pricing-hero__proxy" style="position:absolute;inset:0;z-index:9;"></div>
+  <div class="pricing-hero__proxy" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
   <div class="pricing-hero__hand" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9100;opacity:0;display:flex;flex-direction:column;align-items:center;gap:4px;">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="16" y1="1" x2="16" y2="31" stroke="#1A1916" stroke-width="2" stroke-linecap="round"/>
@@ -832,18 +832,19 @@ class confettiCannon {
   }
 
   initObserver() {
+    var dragTarget = this.hero;
+
     if (typeof Observer === 'undefined') {
-      /* Fallback to native events if Observer plugin not loaded */
-      this.el.proxy.addEventListener('mousedown', e => this.startDrawing(e));
+      dragTarget.addEventListener('mousedown', e => { if (!this._overCTA) this.startDrawing(e); });
       window.addEventListener('mousemove',  e => this.isDrawing && this.updateDrawing(e));
       window.addEventListener('mouseup',    e => this.clearDrawing(e));
       return;
     }
 
     Observer.create({
-      target:      this.el.proxy,
+      target:      dragTarget,
       type:        'pointer',
-      onPress:     e => this.startDrawing(e),
+      onPress:     e => { if (!this._overCTA) this.startDrawing(e); },
       onDrag:      e => this.isDrawing && this.updateDrawing(e),
       onDragEnd:   e => this.clearDrawing(e),
       onRelease:   e => this.clearDrawing(e)
