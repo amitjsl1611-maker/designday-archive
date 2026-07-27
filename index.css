@@ -709,11 +709,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   color:rgba(26,25,22,.48);
 }
 
-/* 4 nodes alternating below / above */
-.day-step-1 { left:3%;   top:72%; }
-.day-step-2 { left:29%;  top:-40%; }
-.day-step-3 { left:55%;  top:72%; }
-.day-step-4 { left:76%;  top:-40%; }
+/* 4 nodes alternating below / above — extra gap from path */
+.day-step-1 { left:3%;   top:82%; }
+.day-step-2 { left:29%;  top:-62%; }
+.day-step-3 { left:55%;  top:82%; }
+.day-step-4 { left:76%;  top:-62%; }
 
 @media (prefers-reduced-motion:reduce) {
   .day-node, .day-step { transition:none; }
