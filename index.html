@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=39">
+<link rel="stylesheet" href="index.css?v=44">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -212,89 +212,186 @@
   </div>
 </section>
 
-<!-- ============ TIMELINE (01) — pinned scroll ============ -->
-<section class="tl" id="timeline">
-  <div class="tl-sticky">
+<!-- ============ DAY FLOW: What Your Day Looks Like ============ -->
+<div class="day-scroll-zone">
+  <section class="day-path-section" aria-label="What Your Day Looks Like">
 
-    <!-- LEFT: index + big year + year rail -->
-    <div class="tl-left">
-      <div class="tl-head">
-        <span class="ttl">Timeline</span>
-      </div>
-
-      <div class="tl-bignum" id="bigNum">2012<span class="tag" id="bigTag">Year one</span></div>
-
-      <div class="tl-years" role="tablist" aria-label="Years">
-        <button class="tl-yr on" data-i="0" role="tab"><span class="bar"></span>2012</button>
-        <button class="tl-yr"    data-i="1" role="tab"><span class="bar"></span>2013</button>
-        <button class="tl-yr"    data-i="2" role="tab"><span class="bar"></span>2014</button>
-        <button class="tl-yr"    data-i="3" role="tab"><span class="bar"></span>2015</button>
-        <button class="tl-yr"    data-i="4" role="tab"><span class="bar"></span>2016</button>
-        <button class="tl-yr"    data-i="5" role="tab"><span class="bar"></span>2017</button>
-      </div>
+    <div class="day-path-header">
+      <p class="eyebrow" style="margin-bottom:14px;">THE EXPERIENCE</p>
+      <h2 class="day-path-heading">What Your Day Looks Like</h2>
+      <p class="day-path-sub">Every Design Day is thoughtfully curated to balance inspiration, practical learning, hands-on collaboration, and meaningful conversations—creating an experience that stays with you long after the event ends.</p>
     </div>
 
-    <!-- RIGHT: swapping step content -->
-    <div class="tl-right">
+    <div class="day-wave-wrap" id="dayWaveWrap">
+      <svg class="day-wave-svg" id="dayWaveSvg" viewBox="0 0 1200 420" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="day-grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#E24866"/>
+            <stop offset="100%" stop-color="#E24866"/>
+          </linearGradient>
+          <filter id="day-shadow-f" x="-20%" y="-100%" width="140%" height="400%"><feGaussianBlur stdDeviation="4"/></filter>
+          <filter id="day-circle-f" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.09)"/></filter>
+          <filter id="day-glow-f" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="12"/></filter>
+        </defs>
 
-      <article class="tl-step on" data-i="0">
-        <span class="tl-yr-inline">2012 · Year one</span>
-        <div class="step-x">Oct 2012 · Microsoft Accelerator, Bengaluru</div>
-        <div class="tl-img"><div class="fill" style="background-color:#cbc7c0;background-image:url('assets/photos/edition-2012-firstday.jpg')"></div></div>
-        <h3>The first DesignDay</h3>
-        <p>October 2012, at the Microsoft Accelerator in Bengaluru. A handful of designers, one room. That first afternoon set the rhythm every edition has kept since: a design story to get inspired, a skill talk, a hands-on jam, then lunch and a chance to actually talk to each other. The theme was Biomimicry and Experimental Design.</p>
-        <a href="events.html?year=2012" class="btn btn-ghost tl-step-cta">Explore editions from 2012</a>
-      </article>
+        <!-- Shadow path -->
+        <path class="day-shadow-curve"
+          d="M -80 310 C 60 310 120 310 180 310 C 280 310 360 80 460 80 C 560 80 640 310 740 310 C 840 310 920 80 1020 80 C 1100 80 1160 80 1280 80"
+          fill="none" stroke="#bbb" stroke-width="8" stroke-linecap="round"
+          transform="translate(0,40)" filter="url(#day-shadow-f)" opacity="0.18"/>
 
-      <article class="tl-step" data-i="1">
-        <span class="tl-yr-inline">2013 · Year two</span>
-        <div class="step-x">Third Saturday, every month · Bengaluru</div>
-        <div class="tl-img"><div class="fill" style="background-color:#cbc7c0;background-image:url('assets/photos/edition-2013-rhythm.jpg')"></div></div>
-        <h3>Found its rhythm</h3>
-        <p>We found a cadence and kept it: the third Saturday of every month in Bengaluru. Twelve editions in year one. Typography, then Brand Design, Game Design, Ethnography. The room kept filling. By the end we counted 22 speakers, 570+ designers in the seats, and 1,800+ in the wider community.</p>
-        <a href="events.html?year=2013" class="btn btn-ghost tl-step-cta">Explore editions from 2013</a>
-      </article>
+        <!-- Main curve -->
+        <path class="day-main-curve"
+          d="M -80 310 C 60 310 120 310 180 310 C 280 310 360 80 460 80 C 560 80 640 310 740 310 C 840 310 920 80 1020 80 C 1100 80 1160 80 1280 80"
+          fill="none" stroke="url(#day-grad)" stroke-width="10" stroke-linecap="round"/>
 
-      <article class="tl-step" data-i="2">
-        <span class="tl-yr-inline">2014 · Year three</span>
-        <div class="step-x">2014 · with Microsoft · Idiom · ISDI</div>
-        <div class="tl-img"><div class="fill" style="background-color:#cbc7c0;background-image:url('assets/photos/edition-2014-talk.jpg')"></div></div>
-        <h3>Themes take the lead</h3>
-        <p>2014 was the year each edition picked a theme and ran with it. Microsoft, Idiom and ISDI came on board, and partner studios opened their own venues. The speaker list went wide: typographers, UX folks, brand designers. Then the design jams turned that talk into things you could pin to a wall.</p>
-        <a href="events.html?year=2014" class="btn btn-ghost tl-step-cta">Explore editions from 2014</a>
-      </article>
+        <!-- Node 1 — BookOpen — Design Story (bottom, cx=180 cy=310) -->
+        <g class="day-node day-node-1">
+          <circle cx="180" cy="310" r="28" fill="white" filter="url(#day-circle-f)"/>
+          <g transform="translate(173,303) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </g>
+        </g>
 
-      <article class="tl-step" data-i="3">
-        <span class="tl-yr-inline">2015 · Year four</span>
-        <div class="step-x">2015 · Mumbai</div>
-        <div class="tl-img"><div class="fill" style="background-color:#cbc7c0;background-image:url('assets/photos/edition-2015-mumbai.jpg')"></div></div>
-        <h3>A second city</h3>
-        <p>In 2015, Bengaluru stopped being the whole story. Mumbai started running its own editions, same format we'd built at home, just a new city and a room full of faces we hadn't met yet. People showed up. That was the year we learned DesignDay could pack up, move, and still feel like DesignDay somewhere else.</p>
-        <a href="events.html?year=2015" class="btn btn-ghost tl-step-cta">Explore editions from 2015</a>
-      </article>
+        <!-- Node 2 — Mic — Design Talk (top, cx=460 cy=80) -->
+        <g class="day-node day-node-2">
+          <circle cx="460" cy="80" r="28" fill="white" filter="url(#day-circle-f)"/>
+          <g transform="translate(453,73) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </g>
+        </g>
 
-      <article class="tl-step" data-i="4">
-        <span class="tl-yr-inline">2016 · Year five</span>
-        <div class="step-x">2016 · Three cities</div>
-        <div class="tl-img"><div class="fill" style="background-color:#cbc7c0;background-image:url('assets/photos/edition-2016-jam.jpg')"></div></div>
-        <h3>Storm the Norm</h3>
-        <p>By 2016, talks had given way to working sessions. People came to make things, not just listen. Design Thinking ran through most of it under the Storm the Norm banner. Delhi joined Bengaluru and Mumbai that year, so we ran across three cities. One community, and it kept growing.</p>
-        <a href="events.html?year=2016" class="btn btn-ghost tl-step-cta">Explore editions from 2016</a>
-      </article>
+        <!-- Node 3 — Pencil — Design Activity (bottom, cx=740 cy=310) -->
+        <g class="day-node day-node-3">
+          <circle cx="740" cy="310" r="28" fill="white" filter="url(#day-circle-f)"/>
+          <g transform="translate(733,303) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+            <path d="m15 5 4 4"/>
+          </g>
+        </g>
 
-      <article class="tl-step" data-i="5">
-        <span class="tl-yr-inline">2017 · Year six</span>
-        <div class="step-x">May 2017 · Idiom Design</div>
-        <div class="tl-img"><div class="fill" style="background-color:#cbc7c0;background-image:url('assets/photos/edition-2017-behance.jpg')"></div></div>
-        <h3>Behance Portfolio Review</h3>
-        <p>May 2017, at Idiom Design. We ran live portfolio critiques with Behance that day. It was a fitting close to five years, 35 editions, and three cities. People still keep the friendships they made on those Saturday mornings, and they bring them up every time we meet.</p>
-        <a href="events.html?year=2017" class="btn btn-ghost tl-step-cta">Explore editions from 2017</a>
-      </article>
+        <!-- Node 4 — Users — Lunch + Networking (top, cx=1020 cy=80) -->
+        <g class="day-node day-node-4">
+          <circle cx="1020" cy="80" r="28" fill="white" filter="url(#day-circle-f)"/>
+          <g transform="translate(1013,73) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </g>
+        </g>
 
-      <div class="tl-progress" id="tlProgress"></div>
+        <!-- Shimmer dot -->
+        <g class="day-shimmer" style="opacity:0">
+          <circle r="32" fill="#E24866" opacity="0.09" filter="url(#day-glow-f)"/>
+          <circle r="13" fill="#E24866" opacity="0.20" filter="url(#day-glow-f)"/>
+          <circle r="5"  fill="white"  opacity="1"/>
+        </g>
+      </svg>
+
+      <!-- Step 1 — Design Story -->
+      <div class="day-step day-step-1">
+        <span class="wave-ghost" aria-hidden="true">01</span>
+        <div class="day-step-num">01</div>
+        <h3>Design Story</h3>
+        <p>Hear the stories behind real products, career journeys, lessons learned, and the decisions that shaped them.</p>
+      </div>
+
+      <!-- Step 2 — Design Talk -->
+      <div class="day-step day-step-2">
+        <span class="wave-ghost" aria-hidden="true">02</span>
+        <div class="day-step-num">02</div>
+        <h3>Design Talk</h3>
+        <p>Learn through practical tutorials, case studies, and expert sessions covering UX, UI, AI, research, product thinking, and emerging trends.</p>
+      </div>
+
+      <!-- Step 3 — Design Activity -->
+      <div class="day-step day-step-3">
+        <span class="wave-ghost" aria-hidden="true">03</span>
+        <div class="day-step-num">03</div>
+        <h3>Design Activity</h3>
+        <p>Put ideas into practice through collaborative workshops, design challenges, critiques, and interactive exercises.</p>
+      </div>
+
+      <!-- Step 4 — Lunch + Networking -->
+      <div class="day-step day-step-4">
+        <span class="wave-ghost" aria-hidden="true">04</span>
+        <div class="day-step-num">04</div>
+        <h3>Lunch + Networking</h3>
+        <p>Connect with fellow designers, students, founders, and industry leaders over conversations that often become the most valuable part of the day.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<script>
+(function initDayAnim() {
+  var scrollZone = document.querySelector('.day-scroll-zone');
+  var svg        = document.getElementById('dayWaveSvg');
+  if (!scrollZone || !svg) return;
+
+  var mainCurve   = svg.querySelector('.day-main-curve');
+  var shadowCurve = svg.querySelector('.day-shadow-curve');
+  var shimmer     = svg.querySelector('.day-shimmer');
+  var nodeGroups  = svg.querySelectorAll('.day-node');
+  var steps       = document.querySelectorAll('.day-step');
+  var totalLength = mainCurve.getTotalLength();
+
+  function getLengthAtX(tx) {
+    var lo = 0, hi = totalLength;
+    for (var i = 0; i < 64; i++) {
+      var mid = (lo + hi) / 2;
+      if (mainCurve.getPointAtLength(mid).x < tx) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+
+  var nodeLengths = [180, 460, 740, 1020].map(getLengthAtX);
+
+  [mainCurve, shadowCurve].forEach(function(p) {
+    p.style.strokeDasharray  = totalLength;
+    p.style.strokeDashoffset = totalLength;
+  });
+
+  var rafId = null, last = -1;
+
+  function update() {
+    rafId = null;
+    var rect       = scrollZone.getBoundingClientRect();
+    var scrollable = scrollZone.offsetHeight - window.innerHeight;
+    var prog       = Math.max(0, Math.min(1, -rect.top / scrollable));
+    if (Math.abs(prog - last) < 0.0004) return;
+    last = prog;
+
+    var len = prog * totalLength;
+    mainCurve.style.strokeDashoffset   = totalLength - len;
+    shadowCurve.style.strokeDashoffset = totalLength - len;
+
+    if (len > 10 && len < totalLength - 10) {
+      var pt = mainCurve.getPointAtLength(len);
+      shimmer.setAttribute('transform', 'translate(' + pt.x + ',' + pt.y + ')');
+      shimmer.style.opacity = '1';
+    } else {
+      shimmer.style.opacity = '0';
+    }
+
+    nodeLengths.forEach(function(nl, i) {
+      var on = len >= nl;
+      nodeGroups[i].classList.toggle('active', on);
+      if (steps[i]) steps[i].classList.toggle('active', on);
+    });
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!rafId) rafId = requestAnimationFrame(update);
+  }, { passive: true });
+
+  update();
+})();
+</script>
 
 <!-- ============ TESTIMONIAL ============ -->
 <section class="quote">
@@ -335,6 +432,10 @@
 <!-- ============ QUICK GLANCE ============ -->
 <section class="section-glance">
   <p class="glance-eyebrow">Quick Glance</p>
+  <div class="glance-header">
+    <h2 class="glance-heading">Explore the Story Behind Design Day</h2>
+    <p class="glance-sub">Discover how Design Day began, what it stands for, and how the community has grown over the years through our pitch deck and annual recap.</p>
+  </div>
   <div class="glance-grid">
 
     <button class="glance-card" data-player="https://speakerdeck.com/player/5082cbd916da7d000202b26d" aria-label="View DesignDay.co presentation">
@@ -402,79 +503,58 @@
 (function(){
   'use strict';
 
-  /* ---- reveal ---- */
+  /* ---- legacy .rv reveal ---- */
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2});
     document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
   }
 
-  /* ---- pinned timeline ---- */
-  var section=document.getElementById('timeline');
-  var steps=Array.prototype.slice.call(document.querySelectorAll('.tl-step'));
-  var years=Array.prototype.slice.call(document.querySelectorAll('.tl-yr'));
-  var bigNum=document.getElementById('bigNum');
-  var bigTag=document.getElementById('bigTag');
-  var prog=document.getElementById('tlProgress');
-  var YEARS=['2012','2013','2014','2015','2016','2017'];
-  var TAGS=['Year one','Year two','Year three','Year four','Year five','Year six'];
-  var N=steps.length;
-  var current=-1;
+})();
 
-  var pinned = window.matchMedia('(min-width:861px)').matches
-            && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---- global scroll reveal ---- */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
 
-  /* give the section enough scroll length to host all steps */
-  function sizeSection(){
-    if(pinned){ section.style.height = (N*72) + 'vh'; }
-    else { section.style.height=''; }
-  }
+  /* Elements to reveal, grouped so siblings stagger together */
+  var GROUPS = [
+    /* carousel */
+    ['.carousel-eyebrow'],
+    ['.carousel-wrap'],
+    /* cities */
+    ['.cities-header'],
+    ['.city-card'],          /* 3 siblings → stagger */
+    /* wave timeline header */
+    ['.tl-path-header'],
+    /* testimonial */
+    ['.quote .mk', '.tq-wrap', '.tq-dots'],
+    /* quick glance */
+    ['.glance-eyebrow'],
+    ['.glance-card'],        /* 2 siblings → stagger */
+    /* closing CTA */
+    ['.cta .eyebrow', '.cta h2', '.cta p', '.cta-act'],
+  ];
 
-  function setActive(i){
-    if(i===current) return;
-    current=i;
-    steps.forEach(function(s,k){s.classList.toggle('on',k===i);});
-    years.forEach(function(y,k){y.classList.toggle('on',k===i);});
-    bigNum.firstChild.textContent=YEARS[i];
-    bigTag.textContent=TAGS[i];
-  }
-
-  function onScroll(){
-    if(!pinned) return;
-    var rect=section.getBoundingClientRect();
-    var total=section.offsetHeight-window.innerHeight;
-    var scrolled=Math.min(Math.max(-rect.top,0),total);
-    var p=total>0?scrolled/total:0;
-    if(prog) prog.style.width=(p*100)+'%';
-    var i=Math.floor(p*N);
-    if(i>=N) i=N-1;
-    if(i<0) i=0;
-    setActive(i);
-  }
-
-  /* click a year to jump to its scroll position */
-  years.forEach(function(y){
-    y.addEventListener('click',function(){
-      var i=+y.dataset.i;
-      if(pinned){
-        var total=section.offsetHeight-window.innerHeight;
-        var target=section.offsetTop + ((i+0.5)/N)*total;
-        window.scrollTo({top:target,behavior:'smooth'});
-      } else {
-        steps[i].scrollIntoView({behavior:'smooth',block:'center'});
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('r-in');
+        obs.unobserve(entry.target);
       }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  GROUPS.forEach(function (selectors) {
+    var all = [];
+    selectors.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) { all.push(el); });
+    });
+    all.forEach(function (el, i) {
+      el.setAttribute('data-r', '');
+      el.style.transitionDelay = (i * 80) + 'ms';
+      obs.observe(el);
+    });
   });
-
-  function init(){
-    pinned = window.matchMedia('(min-width:861px)').matches
-          && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    sizeSection();
-    if(pinned){ onScroll(); } else { setActive(0); }
-  }
-
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',init);
-  init();
 })();
 
 /* ---- hero inline photo cross-fade ---- */
