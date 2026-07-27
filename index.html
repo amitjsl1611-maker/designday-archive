@@ -129,7 +129,7 @@
 
   <!-- ── Slingshot cannon DOM ── -->
   <svg class="pricing-hero__canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:8;overflow:visible;"></svg>
-  <div class="pricing-hero__proxy" style="position:absolute;inset:0;z-index:9;display:none;pointer-events:none;"></div>
+  <div class="pricing-hero__proxy" style="position:absolute;inset:0;z-index:9;"></div>
   <div class="pricing-hero__hand" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9100;opacity:0;display:flex;flex-direction:column;align-items:center;gap:4px;">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="16" y1="1" x2="16" y2="31" stroke="#1A1916" stroke-width="2" stroke-linecap="round"/>
@@ -787,8 +787,10 @@ class confettiCannon {
 
   initEvents() {
     this.hero.style.cursor = 'none';
+    this._overCTA = false;
 
     this.hero.addEventListener('mouseenter', e => {
+      if (this._overCTA) return;
       gsap.to(this.el.hand, { opacity: 1, duration: 0.2 });
       this.xSetter(e.x);
       this.ySetter(e.y);
@@ -799,18 +801,22 @@ class confettiCannon {
     });
 
     this.hero.addEventListener('mousemove', e => {
+      if (this._overCTA) return;
       this.xSetter(e.x);
       this.ySetter(e.y);
     });
 
-    /* Switch to pointer cursor when hovering the CTA button */
+    /* Switch to pointer when hovering CTA — hide crosshair entirely */
     var cta = this.hero.querySelector('.hero-cta');
     if (cta) {
       cta.addEventListener('mouseenter', () => {
+        this._overCTA = true;
         this.hero.style.cursor = 'pointer';
-        gsap.to(this.el.hand, { opacity: 0, duration: 0.15 });
+        gsap.killTweensOf(this.el.hand);
+        gsap.set(this.el.hand, { opacity: 0 });
       });
       cta.addEventListener('mouseleave', () => {
+        this._overCTA = false;
         this.hero.style.cursor = 'none';
         gsap.to(this.el.hand, { opacity: 1, duration: 0.15 });
       });

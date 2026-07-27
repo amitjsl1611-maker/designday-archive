@@ -265,6 +265,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   margin-top:clamp(28px,3.5vh,44px);
   align-self:center;
   cursor:pointer!important;
+  position:relative;z-index:10;
 }
 
 /* marquee */
