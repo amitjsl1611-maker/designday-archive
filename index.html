@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=48">
+<link rel="stylesheet" href="index.css?v=49">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -237,14 +237,14 @@
 
         <!-- Shadow path -->
         <path class="day-shadow-curve"
-          d="M -80 310 C 60 310 120 310 180 310 C 280 310 360 80 460 80 C 560 80 640 310 740 310 C 840 310 920 80 1020 80 C 1100 80 1160 310 1280 310"
+          d="M -80 240 C 60 240 120 240 180 240 C 280 240 360 50 460 50 C 560 50 640 240 740 240 C 840 240 920 50 1020 50 C 1100 50 1160 240 1280 240"
           fill="none" stroke="#bbb" stroke-width="8" stroke-linecap="round"
           transform="translate(0,40)" filter="url(#day-shadow-f)" opacity="0.18"/>
 
         <!-- Main curve -->
         <path class="day-main-curve"
-          d="M -80 310 C 60 310 120 310 180 310 C 280 310 360 80 460 80 C 560 80 640 310 740 310 C 840 310 920 80 1020 80 C 1100 80 1160 310 1280 310"
-          fill="none" stroke="url(#day-grad)" stroke-width="10" stroke-linecap="round"/>
+          d="M -80 240 C 60 240 120 240 180 240 C 280 240 360 50 460 50 C 560 50 640 240 740 240 C 840 240 920 50 1020 50 C 1100 50 1160 240 1280 240"
+          fill="none" stroke="url(#day-grad)" stroke-width="8" stroke-linecap="round"/>
 
         <!-- Node 1 — BookOpen — Design Story (bottom, cx=180 cy=310) -->
         <g class="day-node day-node-1">
@@ -255,35 +255,11 @@
           </g>
         </g>
 
-        <!-- Node 2 — Mic — Design Talk (top, cx=460 cy=80) -->
-        <g class="day-node day-node-2">
-          <circle cx="460" cy="80" r="25" fill="white" filter="url(#day-circle-f)"/>
-          <g transform="translate(453,73) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" x2="12" y1="19" y2="22"/>
-          </g>
-        </g>
+        <g class="day-node day-node-2"></g>
 
-        <!-- Node 3 — Pencil — Design Activity (bottom, cx=740 cy=310) -->
-        <g class="day-node day-node-3">
-          <circle cx="740" cy="310" r="25" fill="white" filter="url(#day-circle-f)"/>
-          <g transform="translate(733,303) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-            <path d="m15 5 4 4"/>
-          </g>
-        </g>
+        <g class="day-node day-node-3"></g>
 
-        <!-- Node 4 — Users — Lunch + Networking (top, cx=1020 cy=80) -->
-        <g class="day-node day-node-4">
-          <circle cx="1020" cy="80" r="25" fill="white" filter="url(#day-circle-f)"/>
-          <g transform="translate(1013,73) scale(0.583)" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </g>
-        </g>
+        <g class="day-node day-node-4"></g>
 
         <!-- Shimmer dot -->
         <g class="day-shimmer" style="opacity:0">
@@ -293,9 +269,30 @@
         </g>
       </svg>
 
+      <!-- Node pins (HTML circles — not distorted by SVG stretching) -->
+      <div class="day-pin day-pin-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <div class="day-pin day-pin-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>
+        </svg>
+      </div>
+      <div class="day-pin day-pin-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>
+        </svg>
+      </div>
+      <div class="day-pin day-pin-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+
       <!-- Step 1 — Design Story -->
       <div class="day-step day-step-1">
-        <span class="wave-ghost" aria-hidden="true">01</span>
         <div class="day-step-num">01</div>
         <h3>Design Story</h3>
         <p>Hear the stories behind real products, career journeys, lessons learned, and the decisions that shaped them.</p>
@@ -303,7 +300,6 @@
 
       <!-- Step 2 — Design Talk -->
       <div class="day-step day-step-2">
-        <span class="wave-ghost" aria-hidden="true">02</span>
         <div class="day-step-num">02</div>
         <h3>Design Talk</h3>
         <p>Learn through practical tutorials, case studies, and expert sessions covering UX, UI, AI, research, product thinking, and emerging trends.</p>
@@ -311,7 +307,6 @@
 
       <!-- Step 3 — Design Activity -->
       <div class="day-step day-step-3">
-        <span class="wave-ghost" aria-hidden="true">03</span>
         <div class="day-step-num">03</div>
         <h3>Design Activity</h3>
         <p>Put ideas into practice through collaborative workshops, design challenges, critiques, and interactive exercises.</p>
@@ -319,7 +314,6 @@
 
       <!-- Step 4 — Lunch + Networking -->
       <div class="day-step day-step-4">
-        <span class="wave-ghost" aria-hidden="true">04</span>
         <div class="day-step-num">04</div>
         <h3>Lunch + Networking</h3>
         <p>Connect with fellow designers, students, founders, and industry leaders over conversations that often become the most valuable part of the day.</p>
@@ -379,10 +373,12 @@
       shimmer.style.opacity = '0';
     }
 
+    var pins = document.querySelectorAll('.day-pin');
     nodeLengths.forEach(function(nl, i) {
       var on = len >= nl;
       nodeGroups[i].classList.toggle('active', on);
       if (steps[i]) steps[i].classList.toggle('active', on);
+      if (pins[i]) pins[i].classList.toggle('active', on);
     });
   }
 
