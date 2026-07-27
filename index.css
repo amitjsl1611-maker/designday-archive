@@ -655,9 +655,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 
 .day-path-header {
-  position:absolute; top:clamp(56px,8vh,96px);
-  left:clamp(20px,4vw,56px); right:clamp(20px,4vw,56px);
-  max-width:1312px; margin:0 auto;
+  position:absolute; top:clamp(112px,12vh,152px);
+  left:var(--gut); right:var(--gut);
 }
 
 .day-path-heading {
