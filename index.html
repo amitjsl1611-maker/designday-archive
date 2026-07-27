@@ -786,7 +786,7 @@ class confettiCannon {
   }
 
   initEvents() {
-    /* this.hero.style.cursor = 'none'; */ /* disabled — city drag off */
+    this.hero.style.cursor = 'none';
 
     this.hero.addEventListener('mouseenter', e => {
       gsap.to(this.el.hand, { opacity: 1, duration: 0.2 });
@@ -802,6 +802,19 @@ class confettiCannon {
       this.xSetter(e.x);
       this.ySetter(e.y);
     });
+
+    /* Switch to pointer cursor when hovering the CTA button */
+    var cta = this.hero.querySelector('.hero-cta');
+    if (cta) {
+      cta.addEventListener('mouseenter', () => {
+        this.hero.style.cursor = 'pointer';
+        gsap.to(this.el.hand, { opacity: 0, duration: 0.15 });
+      });
+      cta.addEventListener('mouseleave', () => {
+        this.hero.style.cursor = 'none';
+        gsap.to(this.el.hand, { opacity: 1, duration: 0.15 });
+      });
+    }
 
     gsap.delayedCall(1.5, () => {
       this.createExplosion(window.innerWidth / 2, window.innerHeight / 2, 600);
