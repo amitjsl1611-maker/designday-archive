@@ -29,7 +29,7 @@
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
-  <a href="#" class="brand" aria-label="DesignDay home">
+  <a href="#" class="brand" aria-label="DesignDay home" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});">
     <img class="brand-logo" src="assets/logo/designday-logo.png" alt="DesignDay" width="172" height="48">
   </a>
   <nav class="nav-r" id="navR">
@@ -1032,6 +1032,13 @@ cannon.init();
   var overlay = document.getElementById('preloader');
   var wordEl  = document.getElementById('preloader-word');
   var barEl   = document.getElementById('preloader-bar');
+
+  /* Skip preloader on return visits within the same session */
+  if (sessionStorage.getItem('preloaderShown')) {
+    overlay.style.display = 'none';
+    return;
+  }
+  sessionStorage.setItem('preloaderShown', '1');
 
   /* 6 words × 0.667s = 4.0s | each: IN 0.12 + HOLD 0.43 + OUT 0.12 = 0.67s
      Last word (Bengali) fully visible at: 5 × 0.67 + 0.12 = 3.47s
