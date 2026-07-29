@@ -130,7 +130,7 @@
 
     .field {
       display: flex; flex-direction: column; gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
     }
     label {
       font-family: var(--mono); font-size: 11px;
@@ -154,8 +154,8 @@
     input[type="text"]:focus,
     input[type="email"]:focus,
     textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(226,72,102,.12);
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(26,25,22,.08);
     }
     textarea { min-height: 140px; line-height: 1.6; }
 
@@ -210,12 +210,12 @@
     .btn-submit {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 14px 28px; border-radius: 999px;
-      background: var(--ink); color: var(--paper);
-      font-family: var(--sans); font-size: 15px; font-weight: 600;
+      background: #2E8B23; color: #fff;
+      font-family: var(--sans); font-size: 15px; font-weight: 700;
       border: none; cursor: pointer;
       transition: background .18s, transform .12s;
     }
-    .btn-submit:hover { background: var(--accent); }
+    .btn-submit:hover { background: #256f1c; }
     .btn-submit:active { transform: scale(.97); }
     .form-note {
       font-size: 12px; color: var(--ink-3); line-height: 1.5;
