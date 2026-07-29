@@ -59,15 +59,11 @@
     .nav-r { display: flex; align-items: center; gap: clamp(18px,2.4vw,34px); }
     .nav-link { font-size: 15px; font-weight: 500; color: var(--ink-2); text-decoration: none; transition: color .16s; }
     .nav-link:hover { color: var(--ink); }
-    .nav-link.active { color: var(--accent); }
-    .btn-green {
-      display: inline-flex; align-items: center;
-      padding: 10px 20px; border-radius: 999px;
-      background: var(--green); color: #fff;
-      font-size: 14px; font-weight: 600;
-      text-decoration: none; transition: background .16s;
-    }
+    .nav-link.active { color: var(--accent); font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; gap: 9px; border-radius: 999px; font-size: 15.5px; font-weight: 600; padding: 16px 28px; transition: .22s ease; text-decoration: none; }
+    .btn-green { background: #2E8B23; color: #fff; font-weight: 700; }
     .btn-green:hover { background: #256f1c; }
+    .nav-cta { padding: 10px 18px; font-size: 14px; }
 
     /* ── MAIN LAYOUT ── */
     main {
@@ -273,7 +269,7 @@
   <nav class="nav-r">
     <a href="about.html" class="nav-link">About</a>
     <a href="contact.html" class="nav-link active">Share Your Story</a>
-    <a href="events.html" class="btn-green">Browse the archive</a>
+    <a href="events.html" class="btn btn-green nav-cta">Browse the archive</a>
   </nav>
 </header>
 
