@@ -34,6 +34,7 @@
   </a>
   <nav class="nav-r" id="navR">
     <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Share Your Story</a>
     <a href="events.html" class="btn btn-green nav-cta" id="navCta">Browse the archive</a>
   </nav>
 </header>
@@ -482,6 +483,7 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="events.html">Archive</a>
+    <a href="contact.html">Share Your Story</a>
   </nav>
   <div class="foot-copy">© DesignDay.co · An Aashish Solanki initiative</div>
 </footer>
@@ -1031,6 +1033,13 @@ class confettiCannon {
 <!-- ============ PRELOADER ANIMATION ============ -->
 <script>
 (function () {
+  /* Skip preloader when navigating back from an inner page */
+  if (location.search.indexOf('skip') !== -1) {
+    var pre = document.getElementById('preloader');
+    if (pre) pre.style.display = 'none';
+    return;
+  }
+
   var words = [
     { text: 'DesignDay',     font: 'Schibsted Grotesk'    },
     { text: 'डिज़ाइन डे',   font: 'Noto Sans Devanagari' },

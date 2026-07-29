@@ -50,7 +50,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
 ::selection{background:var(--ink);color:var(--paper);}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;}
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;}
 
 .btn{
   display:inline-flex;align-items:center;gap:9px;border-radius:999px;
@@ -138,18 +138,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* card body */
 .card-body{padding:14px 2px 0;display:flex;flex-direction:column;gap:8px;}
 .card h3{
-  font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.25;
+  font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.25;
 }
 
 /* metadata row */
 .card-meta{
   display:flex;align-items:center;flex-wrap:wrap;
   gap:0;
-  font-family:var(--mono);font-size:12px;color:var(--ink-3);
+  font-family:var(--mono);font-size:13px;color:var(--ink-3);
 }
 .card-meta-item{
-  display:flex;align-items:center;gap:5px;
-  padding-right:14px;margin-right:14px;
+  display:flex;align-items:center;gap:4px;
+  padding-right:10px;margin-right:10px;
   border-right:1px solid var(--line-2);
 }
 .card-meta-item:last-child{border-right:none;padding-right:0;margin-right:0;}
@@ -168,7 +168,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .section-cta{position:relative;padding:clamp(80px,13vw,190px) var(--gut);text-align:center;overflow:hidden;border-top:1px solid var(--line);}
 .section-cta .blob{position:absolute;top:50%;left:50%;width:min(560px,80vw);transform:translate(-50%,-50%);opacity:.18;z-index:0;color:#FBC02D;}
 .section-cta .inner{position:relative;z-index:1;}
-.section-cta .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--ink-3);margin-bottom:26px;}
+.section-cta .eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:var(--accent);margin-bottom:26px;}
 .section-cta h2{font-size:clamp(32px,5.4vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.02;max-width:16ch;margin:0 auto;}
 .section-cta p{margin:24px auto 0;max-width:50ch;color:var(--ink-2);font-size:clamp(16px,1.5vw,19px);}
 .cta-act{margin-top:38px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
@@ -194,7 +194,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 @media(max-width:480px){
   .grid{grid-template-columns:1fr;}
-  .nav-links a:not(.nav-cta-link){display:none;}
+  .nav-links a:not(.btn-green):not(.nav-cta){display:none;}
 }
 </style>
 </head>
@@ -208,6 +208,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   </a>
   <nav class="nav-links">
     <a href="about.html">About</a>
+    <a href="contact.html">Share Your Story</a>
     <a href="events.html" class="btn btn-green nav-cta">Browse the archive</a>
   </nav>
 </header>
@@ -215,11 +216,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <!-- ============ PAGE HEADER ============ -->
 <div class="page-header">
   <div class="page-header-left">
-    <div class="eyebrow">The full archive</div>
-    <h1><span id="js-event-count">Sixty-five</span> events,<br><em>all in one place.</em></h1>
+    <p class="eyebrow">The complete collection</p>
+    <h1>Every event.<br><em>Every story.</em></h1>
   </div>
   <p class="page-header-right">
-    Every DesignDay session across Bengaluru, Mumbai and Delhi — from February 2012 to May 2017. Talks, workshops, portfolio reviews, webinars, and jams, newest first.
+    Discover the complete DesignDay archive spanning five years, three cities, and 200+ unforgettable sessions that brought the design community together.
   </p>
 </div>
 
@@ -256,6 +257,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="events.html">Archive</a>
+    <a href="contact.html">Share Your Story</a>
   </nav>
   <div class="foot-copy">© DesignDay.co · An Aashish Solanki initiative</div>
 </footer>

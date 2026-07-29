@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Story — DesignDay</title>
+  <meta name="description" content="Share your DesignDay story. Tell us about your experience as a volunteer or participant in India's design community.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #1A1916;
+      --ink-2:    #4A4945;
+      --ink-3:    #8E8D85;
+      --paper:    #FAFAF8;
+      --paper-2:  #F2F1EE;
+      --line-2:   #E8E7E3;
+      --accent:   #E24866;
+      --green:    #2E8B23;
+      --sans:     'Schibsted Grotesk', sans-serif;
+      --mono:     'JetBrains Mono', monospace;
+      --gut:      clamp(20px, 4vw, 56px);
+      --nav-h:    72px;
+      --radius:   16px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--gut);
+      background: rgba(250,250,248,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line-2);
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 18px; letter-spacing: -.02em;
+      color: var(--ink); text-decoration: none;
+    }
+    .brand img { height: 28px; width: auto; }
+    .nav-r { display: flex; align-items: center; gap: clamp(18px,2.4vw,34px); }
+    .nav-link { font-size: 15px; font-weight: 500; color: var(--ink-2); text-decoration: none; transition: color .16s; }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link.active { color: var(--accent); }
+    .btn-green {
+      display: inline-flex; align-items: center;
+      padding: 10px 20px; border-radius: 999px;
+      background: var(--green); color: #fff;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: background .16s;
+    }
+    .btn-green:hover { background: #256f1c; }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      min-height: calc(100vh - var(--nav-h));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1312px;
+      margin: 0 auto;
+      padding: clamp(64px,8vh,112px) var(--gut);
+    }
+
+    /* ── LEFT COLUMN ── */
+    .left {
+      padding-right: clamp(40px, 5vw, 80px);
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--line-2);
+    }
+    .eyebrow {
+      font-family: var(--mono); font-size: 14px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .left h1 {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 600; letter-spacing: -.03em;
+      line-height: 1.1; margin-bottom: 20px;
+    }
+    .left p.sub {
+      font-size: 16px; line-height: 1.7;
+      color: var(--ink-2); max-width: 44ch;
+      margin-bottom: 0;
+    }
+
+    .contact-links {
+      margin-top: clamp(48px, 6vh, 72px);
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .contact-block { display: flex; flex-direction: column; gap: 4px; }
+    .contact-label {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .contact-block a {
+      font-size: 15px; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+      transition: color .16s;
+    }
+    .contact-block a:hover { color: var(--accent); }
+
+    /* ── RIGHT COLUMN ── */
+    .right {
+      padding-left: clamp(40px, 5vw, 80px);
+    }
+
+    form { display: flex; flex-direction: column; gap: 0; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-row.single { grid-template-columns: 1fr; }
+
+    .field {
+      display: flex; flex-direction: column; gap: 8px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-family: var(--sans); font-size: 15px;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      width: 100%;
+      resize: none;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(226,72,102,.12);
+    }
+    textarea { min-height: 140px; line-height: 1.6; }
+
+    /* Radio group */
+    .radio-group {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .radio-group label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-size: 14px;
+      font-weight: 500; letter-spacing: 0;
+      text-transform: none; color: var(--ink-2);
+      cursor: pointer;
+      padding: 10px 18px;
+      border: 1.5px solid var(--line-2);
+      border-radius: 999px;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .radio-group input[type="radio"] { display: none; }
+    .radio-group input[type="radio"]:checked + span {
+      /* handled via JS class */
+    }
+    .radio-group label.checked {
+      border-color: var(--accent);
+      background: rgba(226,72,102,.06);
+      color: var(--accent);
+    }
+    .radio-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      border: 1.5px solid currentColor; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .radio-dot::after {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); display: none;
+    }
+    label.checked .radio-dot::after { display: block; }
+
+    .field-label-row {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 10px;
+    }
+
+    .submit-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    .btn-submit {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 999px;
+      background: var(--ink); color: var(--paper);
+      font-family: var(--sans); font-size: 15px; font-weight: 600;
+      border: none; cursor: pointer;
+      transition: background .18s, transform .12s;
+    }
+    .btn-submit:hover { background: var(--accent); }
+    .btn-submit:active { transform: scale(.97); }
+    .form-note {
+      font-size: 12px; color: var(--ink-3); line-height: 1.5;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none; text-align: center;
+      padding: 40px; flex-direction: column;
+      align-items: center; gap: 16px;
+    }
+    .success-msg .check {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(226,72,102,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 24px;
+    }
+    .success-msg h3 { font-size: 22px; font-weight: 600; }
+    .success-msg p { font-size: 15px; color: var(--ink-2); max-width: 32ch; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--line-2);
+      padding: 28px var(--gut);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .foot-copy { font-size: 13px; color: var(--ink-3); }
+    .foot-nav { display: flex; gap: 20px; }
+    .foot-nav a { font-size: 13px; color: var(--ink-3); text-decoration: none; transition: color .16s; }
+    .foot-nav a:hover { color: var(--ink); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      main { grid-template-columns: 1fr; gap: clamp(48px,6vh,72px); }
+      .left { border-right: none; border-bottom: 1px solid var(--line-2); padding-right: 0; padding-bottom: clamp(40px,5vh,64px); }
+      .right { padding-left: 0; }
+      .submit-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="index.html" class="brand">
+    <img src="assets/logo/designday-logo-sm.png" alt="DesignDay">
+  </a>
+  <nav class="nav-r">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link active">Share Your Story</a>
+    <a href="events.html" class="btn-green">Browse the archive</a>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- LEFT -->
+  <div class="left">
+    <div>
+      <p class="eyebrow">Share Your Story</p>
+      <h1>Your memory of DesignDay deserves to be heard.</h1>
+      <p class="sub">Whether you helped build it or simply showed up — every story matters. Tell us what DesignDay meant to you and we'll keep it as part of the archive.</p>
+    </div>
+
+    <div class="contact-links">
+      <div class="contact-block">
+        <span class="contact-label">Email us at</span>
+        <a href="mailto:hello@designday.co">hello@designday.co</a>
+      </div>
+      <div class="contact-block">
+        <span class="contact-label">Facebook Community</span>
+        <a href="https://www.facebook.com/groups/designday" target="_blank" rel="noopener">facebook.com/groups/designday</a>
+      </div>
+      <div class="contact-block">
+        <span class="contact-label">Meetup Group</span>
+        <a href="https://www.meetup.com/DesignDay" target="_blank" rel="noopener">meetup.com/DesignDay</a>
+      </div>
+      <div class="contact-block">
+        <span class="contact-label">Organiser</span>
+        <a href="https://aashish.com" target="_blank" rel="noopener">aashish.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <form id="storyForm" novalidate>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Priya" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Mehta" autocomplete="family-name" required>
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="priya@example.com" autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div>
+          <p class="field-label-row">I attended as a</p>
+          <div class="radio-group" id="roleGroup">
+            <label id="lbl-participant">
+              <input type="radio" name="role" value="participant">
+              <span class="radio-dot"></span>
+              <span>Participant</span>
+            </label>
+            <label id="lbl-volunteer">
+              <input type="radio" name="role" value="volunteer">
+              <span class="radio-dot"></span>
+              <span>Volunteer</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div class="field">
+          <label for="story">Share Your Story</label>
+          <textarea id="story" name="story" placeholder="Tell us what DesignDay meant to you — a moment, a connection, a session that stayed with you..." required></textarea>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn-submit">
+          Send your story
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="form-note">We read every submission.<br>No spam, ever.</p>
+      </div>
+
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="check">✦</div>
+      <h3>Thank you for sharing.</h3>
+      <p>Your story is now part of the DesignDay archive.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-copy">© 2017 DesignDay. All editions archived.</span>
+  <nav class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Archive</a>
+    <a href="contact.html">Share Your Story</a>
+  </nav>
+</footer>
+
+<script>
+/* Radio pill toggle */
+document.querySelectorAll('.radio-group input[type="radio"]').forEach(function(radio) {
+  radio.addEventListener('change', function() {
+    document.querySelectorAll('.radio-group label').forEach(function(l) {
+      l.classList.remove('checked');
+    });
+    this.closest('label').classList.add('checked');
+  });
+});
+
+/* Form submit (front-end only for now) */
+document.getElementById('storyForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.style.display = 'none';
+  var msg = document.getElementById('successMsg');
+  msg.style.display = 'flex';
+});
+</script>
+
+</body>
+</html>
