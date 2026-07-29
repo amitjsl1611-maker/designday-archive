@@ -235,16 +235,13 @@
     .success-msg p { font-size: 15px; color: var(--ink-2); max-width: 32ch; }
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--line-2);
-      padding: 28px var(--gut);
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap;
-    }
-    .foot-copy { font-size: 13px; color: var(--ink-3); }
-    .foot-nav { display: flex; gap: 20px; }
-    .foot-nav a { font-size: 13px; color: var(--ink-3); text-decoration: none; transition: color .16s; }
-    .foot-nav a:hover { color: var(--ink); }
+    .footer { border-top: 1px solid var(--line-2); padding: 28px var(--gut);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { height: 28px; width: auto; opacity: .6; }
+    .footer-copy { font-family: var(--mono); font-size: 12px; letter-spacing: .01em; color: var(--ink-3); }
+    .footer-nav { display: flex; gap: 20px; }
+    .footer-nav a { font-size: 13px; color: var(--ink-3); text-decoration: none; transition: color .16s; }
+    .footer-nav a:hover { color: var(--ink); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -385,15 +382,16 @@
 
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <span class="foot-copy">© 2017 DesignDay. All editions archived.</span>
-  <nav class="foot-nav">
+<!-- footer -->
+<footer class="footer">
+  <img class="footer-logo" src="assets/logo/designday-logo.png" alt="DesignDay">
+  <nav class="footer-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="events.html">Archive</a>
     <a href="contact.html">Share Your Story</a>
   </nav>
+  <span class="footer-copy">&#169; DesignDay.co &#183; An Aashish Solanki Initiative</span>
 </footer>
 
 <script>
