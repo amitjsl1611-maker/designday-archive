@@ -125,6 +125,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   display:flex;flex-direction:column;
   position:relative;overflow:hidden;
 }
+/* JS adds/removes this class to toggle crosshair mode on the hero */
+.hero--crosshair { cursor:none; }
+.hero--crosshair .hero-cta { cursor:pointer !important; }
 /* ── City photo scroll panels ── */
 .city-bg{
   position:absolute;inset:0;pointer-events:none;z-index:0;
