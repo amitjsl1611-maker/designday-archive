@@ -49,7 +49,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Java City, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'The very first gathering of Bangalore designers — a tiny coffee meetup at Java City that planted the seed for what would eventually become DesignDay.',
   },
   {
@@ -61,7 +61,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Cafe Coffee Day, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'The very first gathering of Bangalore designers — an informal coffee meet that planted the seed for what would become DesignDay.',
   },
   {
@@ -73,7 +73,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Jaaga, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'The second gathering of Bangalore designers at Jaaga — the community beginning to take shape around a shared love of design.',
   },
   {
@@ -85,7 +85,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Pepper Square, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'Monthly meetup for Bangalore designers at Pepper Square — conversations, connections, and the growing energy of a community finding its rhythm.',
   },
   {
@@ -97,7 +97,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Pepper Square, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'June edition of the Bangalore designers meetup at Pepper Square — the monthly gathering that would eventually evolve into DesignDay.',
   },
   {
@@ -109,7 +109,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Pepper Square, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'July edition of the Bangalore designers meetup — one of the largest pre-DesignDay gatherings, bringing together over 40 designers.',
   },
   {
@@ -121,7 +121,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Centre for Internet and Society, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'August edition of the Bangalore designers meetup at the Centre for Internet and Society — the community relocating and growing.',
   },
   {
@@ -133,7 +133,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Centre for Internet and Society, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'The final pre-DesignDay meetup — the month before Edition 01 launched the DesignDay format that would run for five years.',
   },
 
@@ -159,7 +159,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'The second edition explored Illustration and Comics — the visual language of sequential art brought into the designer\'s toolkit.',
   },
   {
@@ -171,7 +171,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'Edition 03 focused on Brand Design — how visual identity systems are built, scaled, and lived in by organisations.',
   },
   {
@@ -183,7 +183,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'Edition 04 examined Design for Safety — how thoughtful design can prevent harm, signal danger, and protect lives.',
   },
   {
@@ -195,7 +195,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'Edition 05 turned the lens inward — how designers build, communicate, and own their personal brand.',
   },
 
@@ -209,7 +209,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'Edition 06 brought product and furniture designers to the table — exploring craft, materiality, and the line between functional and beautiful objects.',
   },
   {
@@ -221,7 +221,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'Edition 07 examined the state of design education in India — how designers are trained, what\'s missing, and what the community can do about it.',
   },
   {
@@ -245,7 +245,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'A special format edition — the first Co-Creation Lab. Participants moved from audience to collaborator, working together to ideate and prototype in real time.',
   },
   {
@@ -257,7 +257,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'Edition 09 dug into Design Thinking as a method — how empathy, ideation, and rapid prototyping can be applied beyond traditional design contexts.',
   },
   {
@@ -269,7 +269,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'The tenth edition and a milestone. Edition 10 explored Retail Design — how physical spaces guide behaviour, tell brand stories, and create memorable customer experiences.',
   },
   {
@@ -281,7 +281,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Idiom Design & Consultancy, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'Edition 11 welcomed game designers to the stage — systems thinking, player psychology, and the craft of designing for play.',
   },
   {
@@ -305,7 +305,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'Edition 13 drove into Automobile Design — the intersection of engineering constraint, aerodynamics, and the dream of the open road.',
   },
   {
@@ -317,7 +317,7 @@ window.EDITIONS = [
     year: 2013,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2013-rhythm.jpg',
+    photo: null,
     description: 'Edition 14 tackled a question every designer faces: how do you sell your work to people who don\'t speak design? Practical strategies for presenting, persuading, and getting the work made.',
   },
 
@@ -331,7 +331,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 15 focused on Visual Communication Design — how information is structured, sequenced, and made legible across media, from print to screen.',
   },
   {
@@ -343,7 +343,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 16 explored Package Design — the art of communicating product identity, protecting contents, and shaping the moment of first encounter on the shelf.',
   },
   {
@@ -355,7 +355,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 17 brought the product design discipline into focus — from ideation and user research through to manufacturing constraints and launch.',
   },
   {
@@ -367,7 +367,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 18 explored Mobile User Experience at a moment when the smartphone was transforming how India came online. Speakers shared frameworks for designing for constrained screens and unpredictable contexts.',
   },
   {
@@ -379,7 +379,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 19 wove together craft and commerce — exploring Textile Design, the hand-to-loom-to-market journey and the cultural stories carried in fabric.',
   },
   {
@@ -391,7 +391,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 20 tackled the unglamorous but essential craft of Design Documentation — how decisions get recorded, communicated, and handed off without losing their intent.',
   },
   {
@@ -403,7 +403,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 21 focused on Design for Accessibility — building products and spaces that work for everyone, including the 15% of the world\'s population who live with a disability.',
   },
   {
@@ -415,7 +415,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 22 turned to the natural and built environment — exploring how design can address ecological systems, urban ecology, and the spaces we share with other species.',
   },
   {
@@ -427,7 +427,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft Research, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 23 explored Design and Social Innovation — how design practice can address systemic social challenges and create impact at scale.',
   },
   {
@@ -439,7 +439,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'Edition 24 marked two years of DesignDay. The theme — Future by Design — asked what design can and should be, and where India\'s design community is heading.',
   },
 
@@ -452,7 +452,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'IBM EGL, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'A November special on Typeface Design — exploring how letterforms are drawn, spaced, and tested, with a particular focus on designing for Indian scripts.',
   },
 
@@ -466,7 +466,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'IBM EGL Techpark, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Toy Design opened 2015 — exploring the intersection of play, safety, culture, and manufacturing that goes into the objects we hand to children.',
   },
   {
@@ -478,7 +478,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 26 focused on User Research — the methods, ethics, and craft of listening to people before designing for them.',
   },
   {
@@ -490,7 +490,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'IBM EGL, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 27 explored Furniture Design — the dialogue between material, structure, function, and the lived spaces we inhabit.',
   },
   {
@@ -502,7 +502,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'IBM EGL, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 28 explored where art and design meet — and where they diverge. Speakers examined how artistic practice informs commercial design work.',
   },
   {
@@ -514,7 +514,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 29 put the spotlight on women building design businesses in India — their stories, challenges, and the community they are shaping.',
   },
   {
@@ -526,7 +526,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 30 explored Human Machine Interaction for Consumer Products — as connected devices began to enter every home, designers grappled with new interfaces and ambient computing.',
   },
   {
@@ -538,7 +538,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 31 was a practical deep dive into Ideation Techniques — structured creativity methods that move teams from blank page to credible concepts.',
   },
   {
@@ -550,7 +550,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 32 focused on Thinking Visually — using sketching, diagrams, and visual language not just to present ideas, but to think through them.',
   },
   {
@@ -562,7 +562,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 33 examined Storytelling and Narrative through an Indian lens — folk traditions, oral culture, and how these shape the stories designers tell in a modern context.',
   },
   {
@@ -574,7 +574,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 34 brought together varied voices for an evening of Tales and Perspectives — designers sharing turning points, lessons, and the stories behind the work.',
   },
   {
@@ -586,7 +586,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2015-mumbai.jpg',
+    photo: null,
     description: 'Edition 35 closed the year with Face/InterFace — a meditation on how we represent ourselves, design identities, and meet others through screens.',
   },
 
@@ -600,7 +600,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2016-jam.jpg',
+    photo: null,
     description: 'Edition 36 opened 2016 with Creative Film Making — exploring the visual grammar of cinema and how moving image is increasingly part of every designer\'s toolkit.',
   },
   {
@@ -612,7 +612,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2016-jam.jpg',
+    photo: null,
     description: 'Edition 37 was an unfiltered, opinionated session — speakers called out the pretension, jargon, and bad practice that holds design back. High signal, no fluff.',
   },
   {
@@ -624,7 +624,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'NID R&D Campus, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2016-jam.jpg',
+    photo: null,
     description: 'Edition 38 took DesignDay to the Dfrost design festival at NID R&D Campus — bringing the community format to a wider audience in a new setting.',
   },
   {
@@ -636,7 +636,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2016-jam.jpg',
+    photo: null,
     description: 'Edition 39 ran Design Thinking 2.0 under the Storm the Norm banner — a working session that pushed participants to challenge assumptions and prototype unconventional solutions.',
   },
   {
@@ -648,7 +648,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'LINK Innovations / NUMA, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2016-jam.jpg',
+    photo: null,
     description: 'Edition 40 brought Behance Portfolio Reviews to Bengaluru — designers put their work in front of peers and received live, honest critique in a supportive room.',
   },
   {
@@ -660,7 +660,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'TLabs, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2016-jam.jpg',
+    photo: null,
     description: 'Edition 41 explored the craft and culture of the Graphic Novel — sequential storytelling, visual narrative, and the resurgence of illustrated long-form.',
   },
 
@@ -674,7 +674,7 @@ window.EDITIONS = [
     year: 2017,
     venue: 'Idiom Design & Consulting, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2017-behance.jpg',
+    photo: null,
     description: 'Edition 42 opened 2017 with Transportation and Cities — how design shapes the way we move through urban environments, from transit systems to the pavements between them.',
   },
   {
@@ -686,7 +686,7 @@ window.EDITIONS = [
     year: 2017,
     venue: 'Idiom Design & Consulting, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2017-behance.jpg',
+    photo: null,
     description: 'Edition 43 tackled Service Design — the discipline of designing not objects or screens, but the end-to-end experiences people have with organisations.',
   },
   {
@@ -698,7 +698,7 @@ window.EDITIONS = [
     year: 2017,
     venue: 'Idiom Design & Consulting, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2017-behance.jpg',
+    photo: null,
     description: 'The final DesignDay. May 2017 at Idiom Design — live portfolio critiques with Behance, a room full of graphic designers, and five years of momentum behind it. A fitting close to an era.',
   },
 
@@ -712,7 +712,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'A secondary Meetup listing for the January 2014 Design Day session.',
   },
   {
@@ -724,7 +724,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'A secondary Meetup listing for the March 2014 Design Day session.',
   },
   {
@@ -736,7 +736,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'A secondary Meetup listing for the June 2014 Design Day session.',
   },
   {
@@ -748,7 +748,7 @@ window.EDITIONS = [
     year: 2014,
     venue: 'Microsoft R&D, Bengaluru',
     city: 'Bengaluru',
-    photo: 'edition-2014-talk.jpg',
+    photo: null,
     description: 'A secondary Meetup listing for the September 2014 Design Day session.',
   },
 
@@ -762,7 +762,7 @@ window.EDITIONS = [
     year: 2012,
     venue: 'Pepper Square, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A provider meetup hosted at Pepper Square, organised through the Bangalore Designers Meetup group.',
   },
   {
@@ -774,7 +774,7 @@ window.EDITIONS = [
     year: 2015,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A live online session on building dynamic web applications with Angular JS, hosted through the Bangalore Designers Meetup group.',
   },
   {
@@ -786,7 +786,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'An online foundation course on Hadoop 2.x, posted through the Bangalore Designers Meetup group.',
   },
   {
@@ -798,7 +798,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A live session guiding participants through running their first Hadoop program, hosted online through the Bangalore Designers Meetup group.',
   },
   {
@@ -810,7 +810,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'TLabs, Bengaluru',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A follow-up live session on running Hadoop programs, hosted at TLabs through the Bangalore Designers Meetup group.',
   },
   {
@@ -822,7 +822,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A focused webinar on five critical Apache Spark commands, posted through the Bangalore Designers Meetup group.',
   },
   {
@@ -834,7 +834,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A focused webinar on five critical Hadoop 2.x commands, hosted online through the Bangalore Designers Meetup group.',
   },
   {
@@ -846,7 +846,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'An advanced practical webinar covering Hadoop 2.x and Apache Spark, hosted online through the Bangalore Designers Meetup group.',
   },
   {
@@ -858,7 +858,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A free live online webinar introducing Apache Spark and Scala, posted through the Bangalore Designers Meetup group.',
   },
   {
@@ -870,7 +870,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A live online webinar invitation on AngularJS, posted through the Bangalore Designers Meetup group.',
   },
   {
@@ -882,7 +882,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A live online webinar covering Java fundamentals, posted through the Bangalore Designers Meetup group.',
   },
   {
@@ -894,7 +894,7 @@ window.EDITIONS = [
     year: 2016,
     venue: 'Online',
     city: 'Bengaluru',
-    photo: 'poster-general.jpg',
+    photo: null,
     description: 'A live webinar on Apache Pig with a practical starter kit, posted through the Bangalore Designers Meetup group.',
   },
 

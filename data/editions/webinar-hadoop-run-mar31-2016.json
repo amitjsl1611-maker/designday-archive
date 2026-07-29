@@ -7,7 +7,7 @@
   "year": 2016,
   "venue": "TLabs, Bengaluru",
   "city": "Bengaluru",
-  "photo": "poster-general.jpg",
+  "photo": null,
   "description": "The session agenda is as follows:\n\n• Introduction to Big Data & Hadoop\n\n• Hadoop 2.0 Architecture\n\n• Data Loading via HDFS\n\n• Scripting Commands - MapReduce & Hive\n\n• Live Programming Tutorial\n\n• Future & Possibilities of Big Data\n\nCheers!",
   "facebook": "",
   "carousel": false,

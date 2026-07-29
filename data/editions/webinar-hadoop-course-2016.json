@@ -7,7 +7,7 @@
   "year": 2016,
   "venue": "Online",
   "city": "Bengaluru",
-  "photo": "poster-general.jpg",
+  "photo": null,
   "description": "Hey,\n\nThe following will be covered:\n\n• Complete Hadoop Stack - System Configurations & Dataflows\n\n• Data Loading via HDFS - Name Node & Data Node\n\n• BIG Data Analytics via MapReduce - Mapper, Reducer and Combiner\n\n• Running Queries via HiveQL; Complier & UDFs\n\n• What is YARN? YARN and HDFS Integration?\n\nIt is scheduled for February 13th & 14th, at 8:30PM IST.\n\nIf you require any assistance, please click on the above link. You'll get all the details.\n\nCheers!",
   "facebook": "",
   "carousel": false,

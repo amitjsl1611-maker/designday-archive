@@ -7,7 +7,7 @@
   "year": 2016,
   "venue": "Online",
   "city": "Bengaluru",
-  "photo": "poster-general.jpg",
+  "photo": null,
   "description": "Hey!\n\nThe session agenda is as follows:\n\n•Spark Fundamentals\n\n• Spark vs Hadoop\n\n• RDDs in Apache Spark\n\n• Distributed Parallel Computing\n\n• Live Programming Tutorial\n\nThis is a great opportunity for you to dive into Apache Spark; and we guarantee you the best learning experience.\n\nSee you !",
   "facebook": "",
   "carousel": false,

@@ -7,7 +7,7 @@
   "year": 2015,
   "venue": "Online",
   "city": "Bengaluru",
-  "photo": "poster-general.jpg",
+  "photo": null,
   "description": "Introduction to Angular JS\nEssential Packages & Modules\nFrameworks for Dynamic Applications\nLive Programming Tutorial\nCareer Guidance\n\nCheers!",
   "facebook": "",
   "carousel": false,

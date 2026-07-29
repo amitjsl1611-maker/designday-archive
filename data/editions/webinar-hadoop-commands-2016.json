@@ -7,7 +7,7 @@
   "year": 2016,
   "venue": "Online",
   "city": "Bengaluru",
-  "photo": "poster-general.jpg",
+  "photo": null,
   "description": "Hey!\n\nThe session agenda is as follows:\n\n• Introduction to Big Data & Hadoop\n\n• Hadoop 2.x & YARN\n\n• Data Loading via HDFS\n\n• MapReduce Libraries\n\n• Programming via HiveQL & PIG-Latin\n\n• Live Programming Tutorial\n\nThis is a great opportunity for you to dive into Hadoop 2.x; and we guarantee you the best learning experience.\n\nSee you !",
   "facebook": "",
   "carousel": false,

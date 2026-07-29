@@ -30,7 +30,7 @@
   --sans:    'Schibsted Grotesk', sans-serif;
   --mono:    'JetBrains Mono', monospace;
   --gut:     clamp(20px, 5vw, 80px);
-  --nav-h:   68px;
+  --nav-h:   89px;
   --ease:    cubic-bezier(.22,1,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -171,11 +171,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @keyframes slideOutLeft{from{transform:translateX(0);}to{transform:translateX(-100%);}}
 
 /* no-photo placeholder */
-.gallery-slide.no-photo{
-  background-image:repeating-linear-gradient(
-    135deg,rgba(26,25,22,.04) 0,rgba(26,25,22,.04) 10px,transparent 10px,transparent 20px
-  );
-}
+.gallery-slide.no-photo{ background:var(--paper-2); }
 
 /* progress bar */
 .gallery-progress{
