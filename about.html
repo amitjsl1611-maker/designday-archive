@@ -131,8 +131,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 }
 /* CTA section — homepage archive style */
 .section-cta{position:relative;padding:clamp(80px,13vw,190px) var(--gut);text-align:center;overflow:hidden;border-bottom:1px solid var(--line);}
-.cta-mark{width:80px;height:80px;border-radius:50%;background:rgba(226,72,102,.08);
-  display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.cta-mark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:clamp(320px,45vw,560px);height:auto;opacity:.15;pointer-events:none;z-index:0;}
 .section-cta .inner{position:relative;z-index:1;}
 .section-cta .eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:var(--accent);margin-bottom:16px;text-transform:uppercase;}
 .section-cta h2{font-size:clamp(32px,5.4vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.02;max-width:16ch;margin:0 auto;}
@@ -434,9 +434,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 <!-- COMMUNITY CTA -->
 <section class="section-cta">
-  <div class="cta-mark" aria-hidden="true">
-    <img src="assets/logo/designday-mark.png" alt="" width="48" height="48">
-  </div>
+  <img class="cta-mark" src="assets/logo/designday-mark.png" alt="" aria-hidden="true">
   <div class="inner">
     <div class="eyebrow">The community</div>
     <h2>Still designing, still showing up.</h2>
