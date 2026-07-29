@@ -131,8 +131,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 }
 /* CTA section — homepage archive style */
 .section-cta{position:relative;padding:clamp(80px,13vw,190px) var(--gut);text-align:center;overflow:hidden;border-bottom:1px solid var(--line);}
-.cta-mark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:clamp(320px,45vw,560px);height:auto;opacity:.15;pointer-events:none;z-index:0;}
+.section-cta .blob{position:absolute;top:50%;left:50%;width:min(560px,80vw);transform:translate(-50%,-50%);opacity:.18;z-index:0;color:var(--gold);}
 .section-cta .inner{position:relative;z-index:1;}
 .section-cta .eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:var(--accent);margin-bottom:16px;text-transform:uppercase;}
 .section-cta h2{font-size:clamp(32px,5.4vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.02;max-width:16ch;margin:0 auto;}
@@ -434,7 +433,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 <!-- COMMUNITY CTA -->
 <section class="section-cta">
-  <img class="cta-mark" src="assets/logo/designday-mark.png" alt="" aria-hidden="true">
+  <svg class="blob" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M44,-58C56,-49,63,-33,66,-17C69,-1,68,16,61,30C53,44,40,55,24,62C8,69,-11,71,-28,65C-45,59,-60,44,-67,26C-74,8,-73,-13,-64,-29C-55,-45,-39,-55,-23,-62C-7,-69,9,-72,24,-69C30,-67,38,-64,44,-58Z" transform="translate(100 100)"/></svg>
   <div class="inner">
     <div class="eyebrow">The community</div>
     <h2>Still designing, still showing up.</h2>
