@@ -336,7 +336,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 
 /* ── city cards ─────────────────────────────────────────── */
-.cities{padding:clamp(112px,12vh,152px) var(--gut);}
+.cities{padding:clamp(112px,12vh,152px) var(--gut) clamp(40px,5vh,64px);}
 .cities-header{
   font-family:var(--mono);font-size:14px;color:var(--accent);
   letter-spacing:.08em;text-transform:uppercase;

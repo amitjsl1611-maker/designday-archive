@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=56">
+<link rel="stylesheet" href="index.css?v=57">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -130,20 +130,10 @@
   <!-- ── Slingshot cannon DOM ── -->
   <svg class="pricing-hero__canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:8;overflow:visible;"></svg>
   <div class="pricing-hero__proxy" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
-  <div class="pricing-hero__hand" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9100;opacity:0;display:flex;flex-direction:column;align-items:center;gap:4px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="16" y1="1" x2="16" y2="31" stroke="#1A1916" stroke-width="2" stroke-linecap="round"/>
-      <line x1="1" y1="16" x2="31" y2="16" stroke="#1A1916" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="16" cy="16" r="5" fill="none" stroke="#1A1916" stroke-width="1.5"/>
-      <circle cx="16" cy="16" r="1.5" fill="#E24866"/>
-    </svg>
-    <small style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(26,25,22,.45);white-space:nowrap;font-family:sans-serif;">click &amp; drag</small>
-  </div>
-  <div class="pricing-hero__rock" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9050;opacity:0;width:44px;height:44px;">
-    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="44" height="44"><polygon points="30,12 50,50 10,50" fill="#E24866" stroke="#E24866" stroke-width="14" stroke-linejoin="round"/></svg>
-  </div>
-  <div class="pricing-hero__drag"   style="opacity:0;display:none;"></div>
-  <div class="pricing-hero__handle" style="opacity:0;display:none;"></div>
+  <div class="pricing-hero__hand" style="display:none;" aria-hidden="true"></div>
+  <div class="pricing-hero__rock"   style="display:none;" aria-hidden="true"></div>
+  <div class="pricing-hero__drag"   style="display:none;"></div>
+  <div class="pricing-hero__handle" style="display:none;"></div>
   <div class="image-preload" style="display:none;" aria-hidden="true">
     <img data-key="tri-pink" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpolygon points='30,12 50,50 10,50' fill='%23E24866' stroke='%23E24866' stroke-width='14' stroke-linejoin='round'/%3E%3C/svg%3E" alt="">
   </div>
@@ -1031,8 +1021,7 @@ class confettiCannon {
   }
 }
 
-const cannon = new confettiCannon(document.querySelector('.hero'));
-cannon.init();
+/* confetti cannon disabled */
 
 } // end reduced-motion guard
 </script>
