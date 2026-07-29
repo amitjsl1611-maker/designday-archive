@@ -201,6 +201,37 @@
     }
     label.checked .radio-dot::after { display: block; }
 
+    /* City checkboxes */
+    .city-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .city-group label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-size: 14px; font-weight: 500;
+      color: var(--ink-2); cursor: pointer;
+      padding: 10px 18px;
+      border: 1.5px solid var(--line-2); border-radius: 999px;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .city-group input[type="checkbox"] { display: none; }
+    .city-group label.checked {
+      border-color: var(--ink); color: var(--ink); background: transparent;
+    }
+    .check-box {
+      width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0;
+      border: 1.5px solid var(--ink-3);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s;
+    }
+    label.checked .check-box {
+      border-color: var(--ink); background: var(--ink);
+    }
+    label.checked .check-box::after {
+      content: '';
+      width: 9px; height: 5px;
+      border-left: 2px solid #fff; border-bottom: 2px solid #fff;
+      transform: rotate(-45deg) translate(1px, -1px);
+      display: block;
+    }
+
     .field-label-row {
       font-family: var(--mono); font-size: 11px;
       letter-spacing: .08em; text-transform: uppercase;
@@ -344,6 +375,29 @@
       </div>
 
       <div class="form-row single">
+        <div>
+          <p class="field-label-row">City I attended</p>
+          <div class="city-group" id="cityGroup">
+            <label>
+              <input type="checkbox" name="city" value="bengaluru">
+              <span class="check-box"></span>
+              <span>Bengaluru</span>
+            </label>
+            <label>
+              <input type="checkbox" name="city" value="mumbai">
+              <span class="check-box"></span>
+              <span>Mumbai</span>
+            </label>
+            <label>
+              <input type="checkbox" name="city" value="delhi">
+              <span class="check-box"></span>
+              <span>Delhi</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row single">
         <div class="field">
           <label for="story">Share Your Story</label>
           <textarea id="story" name="story" placeholder="Tell us what DesignDay meant to you — a moment, a connection, a session that stayed with you..." required></textarea>
@@ -388,6 +442,13 @@ document.querySelectorAll('.radio-group input[type="radio"]').forEach(function(r
       l.classList.remove('checked');
     });
     this.closest('label').classList.add('checked');
+  });
+});
+
+/* City checkbox toggle */
+document.querySelectorAll('.city-group input[type="checkbox"]').forEach(function(cb) {
+  cb.addEventListener('change', function() {
+    this.closest('label').classList.toggle('checked', this.checked);
   });
 });
 
