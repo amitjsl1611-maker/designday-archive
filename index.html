@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=50">
+<link rel="stylesheet" href="index.css?v=51">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -883,18 +883,22 @@ class confettiCannon {
       this.ySetter(e.y);
     });
 
-    /* Switch to pointer when hovering CTA — hide crosshair entirely */
+    /* Switch to pointer when hovering CTA — forcibly hide crosshair */
     var cta = this.hero.querySelector('.hero-cta');
     if (cta) {
       cta.addEventListener('mouseenter', () => {
         this._overCTA = true;
-        this.hero.style.cursor = 'pointer';
+        this.hero.style.cursor = '';          /* let .hero-cta cursor:pointer!important win */
         gsap.killTweensOf(this.el.hand);
-        gsap.set(this.el.hand, { opacity: 0 });
+        this.el.hand.style.display = 'none'; /* hide immediately, no GSAP opacity race */
       });
-      cta.addEventListener('mouseleave', () => {
+      cta.addEventListener('mouseleave', e => {
         this._overCTA = false;
         this.hero.style.cursor = 'none';
+        this.el.hand.style.display = '';
+        /* seed position so hand doesn't jump */
+        this.xSetter(e.clientX);
+        this.ySetter(e.clientY);
         gsap.to(this.el.hand, { opacity: 1, duration: 0.15 });
       });
     }
