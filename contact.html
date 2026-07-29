@@ -450,12 +450,44 @@ document.querySelectorAll('.city-group input[type="checkbox"]').forEach(function
   });
 });
 
-/* Form submit (front-end only for now) */
+/* Form submit → Google Sheet */
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxbCp9QUDeAMTh8HKCYGVRcGnHM9CABB9fd7jekTIsL9VQCEC87oLqtHuJXhYXLLey9/exec';
+
 document.getElementById('storyForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  this.style.display = 'none';
-  var msg = document.getElementById('successMsg');
-  msg.style.display = 'flex';
+  var form = this;
+  var btn  = form.querySelector('.btn-submit');
+
+  var cities = Array.from(document.querySelectorAll('.city-group input[type="checkbox"]:checked'))
+                    .map(function(cb){ return cb.value; }).join(', ');
+
+  var payload = {
+    firstName: document.getElementById('firstName').value.trim(),
+    lastName:  document.getElementById('lastName').value.trim(),
+    email:     document.getElementById('email').value.trim(),
+    role:      (document.querySelector('.radio-group input[type="radio"]:checked') || {}).value || '',
+    city:      cities,
+    story:     document.getElementById('story').value.trim()
+  };
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  fetch(ENDPOINT, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    form.style.display = 'none';
+    var msg = document.getElementById('successMsg');
+    msg.style.display = 'flex';
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'Send your story →';
+    alert('Something went wrong. Please try again.');
+  });
 });
 </script>
 
