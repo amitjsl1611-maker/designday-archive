@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=51">
+<link rel="stylesheet" href="index.css?v=52">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -1074,50 +1074,7 @@ cannon.init();
 } // end reduced-motion guard
 </script>
 
-<!-- ============ SCROLL EXPAND: carousel + city cards ============ -->
-<script>
-(function () {
-  if (!window.gsap || !window.ScrollTrigger) return;
-
-  var EASE = 'none';
-  var START = 'top 88%';
-  var END   = 'top 12%';
-
-  /* ── Photo carousel: padding collapses, radius goes to 0 ── */
-  var carouselSection = document.querySelector('.carousel-section');
-  var carouselWrap    = document.querySelector('.carousel-wrap');
-  if (carouselSection && carouselWrap) {
-    gsap.to(carouselSection, {
-      paddingLeft:  0,
-      paddingRight: 0,
-      ease: EASE,
-      scrollTrigger: { trigger: carouselSection, start: START, end: END, scrub: true }
-    });
-    gsap.to(carouselWrap, {
-      borderRadius: 0,
-      ease: EASE,
-      scrollTrigger: { trigger: carouselSection, start: START, end: END, scrub: true }
-    });
-  }
-
-  /* ── City cards: section padding collapses, each card radius → 0 ── */
-  var citiesSection = document.querySelector('.cities');
-  var cityCards     = document.querySelectorAll('.city-card');
-  if (citiesSection && cityCards.length) {
-    gsap.to(citiesSection, {
-      paddingLeft:  0,
-      paddingRight: 0,
-      ease: EASE,
-      scrollTrigger: { trigger: citiesSection, start: START, end: END, scrub: true }
-    });
-    gsap.to(cityCards, {
-      borderRadius: 0,
-      ease: EASE,
-      scrollTrigger: { trigger: citiesSection, start: START, end: END, scrub: true }
-    });
-  }
-})();
-</script>
+<!-- SCROLL EXPAND disabled — sections use fixed gut padding -->
 
 <!-- ============ PRELOADER ANIMATION ============ -->
 <script>
