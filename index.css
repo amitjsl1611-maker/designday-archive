@@ -319,21 +319,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   background-size:cover;
   background-position:center;
 }
-.carousel-dots{
-  position:absolute;
-  bottom:20px;left:0;right:0;
-  display:flex;justify-content:center;gap:8px;
+.carousel-btn{
+  position:absolute;bottom:24px;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 18px;border-radius:999px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(10px);
+  color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.3);
+  cursor:pointer;transition:background .2s, color .2s, border-color .2s;
 }
-.carousel-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(255,255,255,.45);
-  border:none;cursor:pointer;padding:0;
-  transition:background .25s, transform .25s;
-}
-.carousel-dot.on{
-  background:#fff;
-  transform:scale(1.25);
-}
+.carousel-btn:hover{background:rgba(255,255,255,.28);color:#fff;border-color:rgba(255,255,255,.5);}
+.carousel-btn svg{width:14px;height:14px;flex-shrink:0;}
+.carousel-btn-prev{left:24px;}
+.carousel-btn-next{right:24px;}
 
 /* ── city cards ─────────────────────────────────────────── */
 .cities{padding:clamp(112px,12vh,152px) var(--gut) clamp(40px,5vh,64px);}

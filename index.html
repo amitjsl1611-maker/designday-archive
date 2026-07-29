@@ -173,7 +173,14 @@
       <div class="carousel-slide" style="background-image:url('assets/photos/edition-2016-jam.jpg')"></div>
       <div class="carousel-slide" style="background-image:url('assets/photos/edition-2017-behance.jpg')"></div>
     </div>
-    <div class="carousel-dots" id="carouselDots"></div>
+    <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Prev
+    </button>
+    <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next slide">
+      Next
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 </section>
 
@@ -664,32 +671,23 @@
 /* ---- photo carousel ---- */
 (function(){
   var track = document.getElementById('carouselTrack');
-  var dotsEl = document.getElementById('carouselDots');
-  if (!track || !dotsEl) return;
+  var btnPrev = document.getElementById('carouselPrev');
+  var btnNext = document.getElementById('carouselNext');
+  if (!track) return;
   var slides = track.querySelectorAll('.carousel-slide');
   var total = slides.length;
   var current = 0;
   var timer;
 
-  // build dots
-  for (var i = 0; i < total; i++) {
-    var d = document.createElement('button');
-    d.className = 'carousel-dot' + (i === 0 ? ' on' : '');
-    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    d.dataset.i = i;
-    d.addEventListener('click', function(){ go(+this.dataset.i); restart(); });
-    dotsEl.appendChild(d);
-  }
-
   function go(n) {
     current = (n + total) % total;
     track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, idx){
-      d.classList.toggle('on', idx === current);
-    });
   }
 
   function restart() { clearInterval(timer); timer = setInterval(function(){ go(current + 1); }, 3500); }
+
+  if (btnPrev) btnPrev.addEventListener('click', function(){ go(current - 1); restart(); });
+  if (btnNext) btnNext.addEventListener('click', function(){ go(current + 1); restart(); });
 
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) restart();
 })();
