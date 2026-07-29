@@ -302,7 +302,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .carousel-eyebrow{
   font-family:var(--mono);font-size:14px;color:var(--accent);
   letter-spacing:.08em;text-transform:uppercase;
-  margin-bottom:clamp(20px,2.5vh,32px);
+  margin-bottom:16px;
 }
 .carousel-wrap{
   position:relative;
@@ -458,9 +458,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
    QUICK GLANCE (SpeakerDeck presentations)
    ============================================================ */
 .section-glance{padding:clamp(112px,12vh,152px) var(--gut) 0;border-bottom:none;}
-.glance-eyebrow{font-family:var(--mono);font-size:14px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:clamp(20px,2.5vh,32px);}
+.glance-eyebrow{font-family:var(--mono);font-size:14px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;}
 .glance-header{margin-bottom:clamp(32px,4vh,56px);}
-.glance-heading{font-size:clamp(36px,4vw,52px);font-weight:700;color:var(--ink-1);line-height:1.1;letter-spacing:-.03em;margin-bottom:12px;}
+.glance-heading{font-size:clamp(36px,4vw,52px);font-weight:600;color:var(--ink-1);line-height:1.1;letter-spacing:-.03em;margin-bottom:12px;}
 .glance-sub{font-size:16px;color:var(--ink-2);max-width:540px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .glance-grid{display:flex;gap:calc(var(--gut)/2);}
 .glance-card{
@@ -660,10 +660,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   position:absolute; top:clamp(112px,12vh,152px);
   left:var(--gut); right:var(--gut);
 }
+.day-path-header .eyebrow { margin-bottom:16px; }
 
 .day-path-heading {
   font-size:clamp(36px,4vw,52px);
-  font-weight:700; letter-spacing:-.03em;
+  font-weight:600; letter-spacing:-.03em;
   margin-bottom:12px; line-height:1.1;
 }
 
