@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=55">
+<link rel="stylesheet" href="index.css?v=56">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -863,44 +863,8 @@ class confettiCannon {
   }
 
   initEvents() {
-    this.hero.classList.add('hero--crosshair');
-    this._overCTA = false;
-
-    this.hero.addEventListener('mouseenter', e => {
-      if (this._overCTA) return;
-      gsap.to(this.el.hand, { opacity: 1, duration: 0.2 });
-      this.xSetter(e.clientX);
-      this.ySetter(e.clientY);
-    });
-
-    this.hero.addEventListener('mouseleave', () => {
-      gsap.to(this.el.hand, { opacity: 0, duration: 0.2 });
-    });
-
-    this.hero.addEventListener('mousemove', e => {
-      if (this._overCTA) return;
-      this.xSetter(e.clientX);
-      this.ySetter(e.clientY);
-    });
-
-    /* Switch to pointer on CTA hover */
-    var cta = this.hero.querySelector('.hero-cta');
-    if (cta) {
-      cta.addEventListener('mouseenter', () => {
-        this._overCTA = true;
-        this.hero.classList.remove('hero--crosshair'); /* remove cursor:none from hero */
-        gsap.killTweensOf(this.el.hand);
-        this.el.hand.style.visibility = 'hidden';
-      });
-      cta.addEventListener('mouseleave', e => {
-        this._overCTA = false;
-        this.hero.classList.add('hero--crosshair');
-        this.el.hand.style.visibility = '';
-        this.xSetter(e.clientX);
-        this.ySetter(e.clientY);
-        gsap.to(this.el.hand, { opacity: 1, duration: 0.15 });
-      });
-    }
+    /* Crosshair / hand cursor disabled — use native cursor */
+    this.el.hand.style.display = 'none';
 
     gsap.delayedCall(1.5, () => {
       this.createExplosion(window.innerWidth / 2, window.innerHeight / 2, 600);
