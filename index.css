@@ -712,12 +712,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   color:rgba(26,25,22,.48);
 }
 
-/* All 4 text blocks below the wave */
-.day-step { width:220px; }
-.day-step-1 { left:2%;   top:65%; }
-.day-step-2 { left:27%;  top:65%; }
-.day-step-3 { left:52%;  top:65%; }
-.day-step-4 { left:74%;  top:65%; }
+/* Text blocks centered below each pin circle (pins are 60px, centered at their top%) */
+.day-step { width:220px; text-align:center; }
+.day-step-1 { left:calc(15%   - 110px); top:calc(57.1% + 46px); }
+.day-step-2 { left:calc(38.3% - 110px); top:calc(11.9% + 46px); }
+.day-step-3 { left:calc(61.7% - 110px); top:calc(57.1% + 46px); }
+.day-step-4 { left:calc(85%   - 110px); top:calc(11.9% + 46px); }
 
 /* HTML pin circles — perfect circles, not distorted by SVG stretch */
 .day-pin {
