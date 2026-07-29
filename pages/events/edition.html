@@ -155,6 +155,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* ── RIGHT column — gallery ──────────────────────────────── */
 .col-right{position:relative;background:var(--paper-2);overflow:hidden;}
+.page-body.no-image .col-right,
+.page-body.no-image .gallery-stage{ background:var(--paper); }
+.page-body.no-image .col-left{ border-right:none; }
 
 .gallery-stage{
   position:absolute;inset:0;overflow:hidden;
@@ -171,7 +174,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @keyframes slideOutLeft{from{transform:translateX(0);}to{transform:translateX(-100%);}}
 
 /* no-photo placeholder */
-.gallery-slide.no-photo{ background:var(--paper-2); }
+.gallery-slide.no-photo{ background:var(--paper); }
 
 /* progress bar */
 .gallery-progress{
@@ -315,6 +318,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       + '</div>';
 
     document.getElementById('pageBody').innerHTML = leftHtml + rightHtml;
+
+    if (!photos.length) {
+      document.getElementById('pageBody').classList.add('no-image');
+      document.querySelector('.col-right').classList.add('is-empty');
+    }
 
     buildBottomNav(ed.slug);
     initGallery(photos);
