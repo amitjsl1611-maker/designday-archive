@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+Kannada:wght@300;400&family=Noto+Sans+Tamil:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
-<link rel="stylesheet" href="index.css?v=59">
+<link rel="stylesheet" href="index.css?v=60">
 <link rel="stylesheet" href="mobile.css?v=18">
 </head>
 <body>
@@ -34,6 +34,7 @@
   </a>
   <nav class="nav-r" id="navR">
     <a href="about.html" class="nav-link">About</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
     <a href="contact.html" class="nav-link">Share Your Story</a>
     <a href="events.html" class="btn btn-green nav-cta" id="navCta">Browse the archive</a>
   </nav>
@@ -161,26 +162,30 @@
   </div>
 </section>
 
-<!-- ============ PHOTO CAROUSEL ============ -->
+<!-- ============ ACCORDION GALLERY ============ -->
 <section class="carousel-section">
   <p class="carousel-eyebrow">Moments That Mattered</p>
-  <div class="carousel-wrap">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide" style="background-image:url('assets/photos/edition-2012-firstday.jpg')"></div>
-      <div class="carousel-slide" style="background-image:url('assets/photos/edition-2013-rhythm.jpg')"></div>
-      <div class="carousel-slide" style="background-image:url('assets/photos/edition-2014-talk.jpg')"></div>
-      <div class="carousel-slide" style="background-image:url('assets/photos/edition-2015-mumbai.jpg')"></div>
-      <div class="carousel-slide" style="background-image:url('assets/photos/edition-2016-jam.jpg')"></div>
-      <div class="carousel-slide" style="background-image:url('assets/photos/edition-2017-behance.jpg')"></div>
+  <div class="ag-root" id="accordionGallery" role="list" aria-label="Image accordion gallery">
+    <div class="ag-panel" data-img="assets/photos/edition-2012-firstday.jpg" data-label="First DesignDay · 2012" role="listitem" tabindex="0">
+      <span class="ag-frame"><span class="ag-media"><img src="assets/photos/edition-2012-firstday.jpg" alt="First DesignDay 2012" draggable="false"></span><span class="ag-overlay"></span></span>
+      <span class="ag-label"><span class="ag-bar"></span><span class="ag-text">First DesignDay · 2012</span></span>
     </div>
-    <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      Prev
-    </button>
-    <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next slide">
-      Next
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
+    <div class="ag-panel" data-img="assets/photos/edition-2013-rhythm.jpg" data-label="Rhythm Edition · 2013" role="listitem" tabindex="0">
+      <span class="ag-frame"><span class="ag-media"><img src="assets/photos/edition-2013-rhythm.jpg" alt="Rhythm Edition 2013" draggable="false"></span><span class="ag-overlay"></span></span>
+      <span class="ag-label"><span class="ag-bar"></span><span class="ag-text">Rhythm Edition · 2013</span></span>
+    </div>
+    <div class="ag-panel" data-img="assets/photos/edition-2014-talk.jpg" data-label="Design Talks · 2014" role="listitem" tabindex="0">
+      <span class="ag-frame"><span class="ag-media"><img src="assets/photos/edition-2014-talk.jpg" alt="Design Talks 2014" draggable="false"></span><span class="ag-overlay"></span></span>
+      <span class="ag-label"><span class="ag-bar"></span><span class="ag-text">Design Talks · 2014</span></span>
+    </div>
+    <div class="ag-panel" data-img="assets/photos/edition-2016-jam.jpg" data-label="DesignDay Jam · 2016" role="listitem" tabindex="0">
+      <span class="ag-frame"><span class="ag-media"><img src="assets/photos/edition-2016-jam.jpg" alt="DesignDay Jam 2016" draggable="false"></span><span class="ag-overlay"></span></span>
+      <span class="ag-label"><span class="ag-bar"></span><span class="ag-text">DesignDay Jam · 2016</span></span>
+    </div>
+    <div class="ag-panel" data-img="assets/photos/edition-2017-behance.jpg" data-label="Behance Review · 2017" role="listitem" tabindex="0">
+      <span class="ag-frame"><span class="ag-media"><img src="assets/photos/edition-2017-behance.jpg" alt="Behance Portfolio Review 2017" draggable="false"></span><span class="ag-overlay"></span></span>
+      <span class="ag-label"><span class="ag-bar"></span><span class="ag-text">Behance Review · 2017</span></span>
+    </div>
   </div>
 </section>
 
@@ -189,197 +194,65 @@
   <p class="cities-header">A movement across 3 cities</p>
   <div class="city-cards">
 
-    <a class="city-card" href="events.html" aria-label="Bengaluru editions">
-      <div class="city-card-img" style="background-image:url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=900&fit=crop')"></div>
-      <div class="city-card-fade"></div>
-      <span class="city-card-name">Bengaluru</span>
-    </a>
+    <div class="city-icon-item">
+      <img class="city-icon-img" src="assets/photos/Mumbai icon.png" alt="Mumbai" style="width:200px;height:200px;object-fit:contain;filter:grayscale(1) opacity(.35);">
+      <span class="city-icon-name">Mumbai</span>
+    </div>
 
-    <a class="city-card" href="events.html" aria-label="Mumbai editions">
-      <div class="city-card-img" style="background-image:url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?w=800&fit=crop')"></div>
-      <div class="city-card-fade"></div>
-      <span class="city-card-name">Mumbai</span>
-    </a>
+    <div class="city-icon-item">
+      <img class="city-icon-img" src="assets/photos/bengaluru icon.png" alt="Bengaluru" style="width:200px;height:200px;object-fit:contain;filter:grayscale(1) opacity(.35);">
+      <span class="city-icon-name">Bengaluru</span>
+    </div>
 
-    <a class="city-card" href="events.html" aria-label="Delhi editions">
-      <div class="city-card-img" style="background-image:url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=900&fit=crop')"></div>
-      <div class="city-card-fade"></div>
-      <span class="city-card-name">Delhi</span>
-    </a>
+    <div class="city-icon-item">
+      <img class="city-icon-img" src="assets/photos/Delhi Icon.png" alt="Delhi" style="width:200px;height:200px;object-fit:contain;filter:grayscale(1) opacity(.35);">
+      <span class="city-icon-name">Delhi</span>
+    </div>
 
   </div>
 </section>
 
 <!-- ============ DAY FLOW: What Your Day Looks Like ============ -->
 <div class="day-scroll-zone">
-  <section class="day-path-section" aria-label="What Your Day Looks Like">
+  <div class="day-sticky-layout">
 
-    <div class="day-path-header">
+    <!-- LEFT: sticky header -->
+    <div class="day-sticky-left">
       <p class="eyebrow">THE EXPERIENCE</p>
-      <h2 class="day-path-heading">What Your Day Looks Like</h2>
-      <p class="day-path-sub">Every Design Day is thoughtfully curated to balance inspiration, practical learning, hands-on collaboration, and meaningful conversations—creating an experience that stays with you long after the event ends.</p>
+      <h2 class="day-sticky-heading">What a DesignDay <span style="color:var(--accent)">looked</span> like</h2>
+      <p class="day-sticky-sub">Every Design Day is thoughtfully curated to balance inspiration, practical learning, hands-on collaboration, and meaningful conversations.</p>
     </div>
 
-    <div class="day-wave-wrap" id="dayWaveWrap">
-      <svg class="day-wave-svg" id="dayWaveSvg" viewBox="0 0 1200 420" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="day-grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#E24866"/>
-            <stop offset="55%"  stop-color="#FF6B35"/>
-            <stop offset="100%" stop-color="#F5C518"/>
-          </linearGradient>
-          <filter id="day-shadow-f" x="-20%" y="-100%" width="140%" height="400%"><feGaussianBlur stdDeviation="4"/></filter>
-          <filter id="day-circle-f" x="-80%" y="-80%" width="260%" height="260%"><feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#E24866" flood-opacity="0.28"/></filter>
-          <filter id="day-glow-f" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="12"/></filter>
-        </defs>
+    <!-- RIGHT: scrollable steps -->
+    <div class="day-steps-right">
 
-        <!-- Shadow path -->
-        <path class="day-shadow-curve"
-          d="M -80 240 C 60 240 120 240 180 240 C 280 240 360 50 460 50 C 560 50 640 240 740 240 C 840 240 920 50 1020 50 C 1100 50 1230 200 1280 240"
-          fill="none" stroke="#bbb" stroke-width="8" stroke-linecap="round"
-          transform="translate(0,40)" filter="url(#day-shadow-f)" opacity="0.18"/>
-
-        <!-- Main curve -->
-        <path class="day-main-curve"
-          d="M -80 240 C 60 240 120 240 180 240 C 280 240 360 50 460 50 C 560 50 640 240 740 240 C 840 240 920 50 1020 50 C 1100 50 1230 200 1280 240"
-          fill="none" stroke="url(#day-grad)" stroke-width="8" stroke-linecap="round"/>
-
-        <g class="day-node day-node-1"></g>
-
-        <g class="day-node day-node-2"></g>
-
-        <g class="day-node day-node-3"></g>
-
-        <g class="day-node day-node-4"></g>
-
-        <!-- Shimmer dot -->
-        <g class="day-shimmer" style="opacity:0">
-          <circle r="32" fill="#E24866" opacity="0.09" filter="url(#day-glow-f)"/>
-          <circle r="13" fill="#E24866" opacity="0.20" filter="url(#day-glow-f)"/>
-          <circle r="5"  fill="white"  opacity="1"/>
-        </g>
-      </svg>
-
-      <!-- Node pins (HTML circles — not distorted by SVG stretching) -->
-      <div class="day-pin day-pin-1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-        </svg>
-      </div>
-      <div class="day-pin day-pin-2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
-          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>
-        </svg>
-      </div>
-      <div class="day-pin day-pin-3">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
-          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>
-        </svg>
-      </div>
-      <div class="day-pin day-pin-4">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E24866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
+      <div class="day-item">
+        <span class="day-item-num">01</span>
+        <h3 class="day-item-title">Design Story</h3>
+        <p class="day-item-body">Hear the stories behind real products, career journeys, lessons learned, and the decisions that shaped them. Real designers, real context — no polished mythology.</p>
       </div>
 
-      <!-- Step 1 — Design Story -->
-      <div class="day-step day-step-1">
-        <div class="day-step-num">01</div>
-        <h3>Design Story</h3>
-        <p>Hear the stories behind real products, career journeys, lessons learned, and the decisions that shaped them.</p>
+      <div class="day-item">
+        <span class="day-item-num">02</span>
+        <h3 class="day-item-title">Design Talk</h3>
+        <p class="day-item-body">Learn through practical tutorials, case studies, and expert sessions covering UX, UI, AI, research, product thinking, and emerging trends. Knowledge you can apply on Monday.</p>
       </div>
 
-      <!-- Step 2 — Design Talk -->
-      <div class="day-step day-step-2">
-        <div class="day-step-num">02</div>
-        <h3>Design Talk</h3>
-        <p>Learn through practical tutorials, case studies, and expert sessions covering UX, UI, AI, research, product thinking, and emerging trends.</p>
+      <div class="day-item">
+        <span class="day-item-num">03</span>
+        <h3 class="day-item-title">Design Activity</h3>
+        <p class="day-item-body">Put ideas into practice through collaborative workshops, design challenges, critiques, and interactive exercises. You stop being an audience and become a collaborator.</p>
       </div>
 
-      <!-- Step 3 — Design Activity -->
-      <div class="day-step day-step-3">
-        <div class="day-step-num">03</div>
-        <h3>Design Activity</h3>
-        <p>Put ideas into practice through collaborative workshops, design challenges, critiques, and interactive exercises.</p>
+      <div class="day-item">
+        <span class="day-item-num">04</span>
+        <h3 class="day-item-title">Lunch + Networking</h3>
+        <p class="day-item-body">Connect with fellow designers, students, founders, and industry leaders over conversations that often become the most valuable part of the day. No agenda, just people.</p>
       </div>
 
-      <!-- Step 4 — Lunch + Networking -->
-      <div class="day-step day-step-4">
-        <div class="day-step-num">04</div>
-        <h3>Lunch + Networking</h3>
-        <p>Connect with fellow designers, students, founders, and industry leaders over conversations that often become the most valuable part of the day.</p>
-      </div>
     </div>
-  </section>
+  </div>
 </div>
-
-<script>
-(function initDayAnim() {
-  var scrollZone = document.querySelector('.day-scroll-zone');
-  var svg        = document.getElementById('dayWaveSvg');
-  if (!scrollZone || !svg) return;
-
-  var mainCurve   = svg.querySelector('.day-main-curve');
-  var shadowCurve = svg.querySelector('.day-shadow-curve');
-  var shimmer     = svg.querySelector('.day-shimmer');
-  var nodeGroups  = svg.querySelectorAll('.day-node');
-  var steps       = document.querySelectorAll('.day-step');
-  var totalLength = mainCurve.getTotalLength();
-
-  function getLengthAtX(tx) {
-    var lo = 0, hi = totalLength;
-    for (var i = 0; i < 64; i++) {
-      var mid = (lo + hi) / 2;
-      if (mainCurve.getPointAtLength(mid).x < tx) lo = mid; else hi = mid;
-    }
-    return (lo + hi) / 2;
-  }
-
-  var nodeLengths = [180, 460, 740, 1020].map(getLengthAtX);
-
-  [mainCurve, shadowCurve].forEach(function(p) {
-    p.style.strokeDasharray  = totalLength;
-    p.style.strokeDashoffset = totalLength;
-  });
-
-  var rafId = null, last = -1;
-
-  function update() {
-    rafId = null;
-    var rect       = scrollZone.getBoundingClientRect();
-    var scrollable = scrollZone.offsetHeight - window.innerHeight;
-    var prog       = Math.max(0, Math.min(1, -rect.top / scrollable));
-    if (Math.abs(prog - last) < 0.0004) return;
-    last = prog;
-
-    var len = prog * totalLength;
-    mainCurve.style.strokeDashoffset   = totalLength - len;
-    shadowCurve.style.strokeDashoffset = totalLength - len;
-
-    if (len > 10 && len < totalLength - 10) {
-      var pt = mainCurve.getPointAtLength(len);
-      shimmer.setAttribute('transform', 'translate(' + pt.x + ',' + pt.y + ')');
-      shimmer.style.opacity = '1';
-    } else {
-      shimmer.style.opacity = '0';
-    }
-
-    var pins = document.querySelectorAll('.day-pin');
-    nodeLengths.forEach(function(nl, i) {
-      var on = len >= nl;
-      nodeGroups[i].classList.toggle('active', on);
-      if (steps[i]) steps[i].classList.toggle('active', on);
-      if (pins[i]) pins[i].classList.toggle('active', on);
-    });
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!rafId) rafId = requestAnimationFrame(update);
-  }, { passive: true });
-
-  update();
-})();
-</script>
 
 <!-- ============ TESTIMONIAL ============ -->
 <section class="quote">
@@ -433,7 +306,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <p class="glance-title">DesignDay.co</p>
+      <p class="glance-title">What DesignDay Is</p>
     </button>
 
     <button class="glance-card" data-player="https://speakerdeck.com/player/0327d9e0215601317a813af527e709f2" aria-label="View Design Day 1st Anniversary Recap presentation">
@@ -443,7 +316,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <p class="glance-title">Design Day 1st Anniversary Recap</p>
+      <p class="glance-title">A Year in Recap</p>
     </button>
 
   </div>
@@ -668,34 +541,80 @@
   });
 })();
 
-/* ---- photo carousel ---- */
-(function(){
-  var track = document.getElementById('carouselTrack');
-  var btnPrev = document.getElementById('carouselPrev');
-  var btnNext = document.getElementById('carouselNext');
-  if (!track) return;
-  var slides = track.querySelectorAll('.carousel-slide');
-  var total = slides.length;
-  var current = 0;
-  var timer;
-
-  function go(n) {
-    current = (n + total) % total;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
-  }
-
-  function restart() { clearInterval(timer); timer = setInterval(function(){ go(current + 1); }, 3500); }
-
-  if (btnPrev) btnPrev.addEventListener('click', function(){ go(current - 1); restart(); });
-  if (btnNext) btnNext.addEventListener('click', function(){ go(current + 1); restart(); });
-
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) restart();
-})();
 </script>
 
-<!-- GSAP + ScrollTrigger for city map scroll — TEMPORARILY DISABLED -->
+<!-- GSAP + ScrollTrigger -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- accordion gallery (needs GSAP) -->
+<script>
+/* ---- accordion gallery ---- */
+(function(){
+  var root = document.getElementById('accordionGallery');
+  if (!root || !window.gsap) return;
+
+  var panels = Array.from(root.querySelectorAll('.ag-panel'));
+  var count = panels.length;
+  var active = 2;
+  var expandRatio = 0.72;
+  var dur = 0.5;
+  var ease = 'power3.out';
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function grow() { return count > 1 ? (expandRatio * (count - 1)) / (1 - expandRatio) : 1; }
+
+  function setStatic() {
+    var g = grow();
+    panels.forEach(function(panel, i) {
+      var isActive = i === active;
+      var media = panel.querySelector('.ag-media');
+      var overlay = panel.querySelector('.ag-overlay');
+      panel.style.flexGrow = isActive ? g : 1;
+      if (media) media.style.filter = isActive ? 'grayscale(0)' : 'grayscale(1)';
+      if (overlay) overlay.style.background = isActive ? 'rgba(6,0,16,0)' : 'rgba(6,0,16,0.42)';
+    });
+  }
+
+  function applyLayout(animate) {
+    if (!animate || prefersReduced) { setStatic(); return; }
+    var g = grow();
+    var tl = gsap.timeline();
+    panels.forEach(function(panel, i) {
+      var isActive = i === active;
+      var media = panel.querySelector('.ag-media');
+      var overlay = panel.querySelector('.ag-overlay');
+      tl.to(panel, { flexGrow: isActive ? g : 1, duration: dur, ease: ease }, 0);
+      if (media) tl.to(media, { filter: isActive ? 'grayscale(0)' : 'grayscale(1)', duration: dur, ease: ease }, 0);
+      if (overlay) tl.to(overlay, { background: isActive ? 'rgba(6,0,16,0)' : 'rgba(6,0,16,0.42)', duration: dur, ease: ease }, 0);
+    });
+  }
+
+  setStatic();
+
+  /* auto-advance every 2.8s */
+  var autoTimer = setInterval(function() {
+    active = (active + 1) % count;
+    applyLayout(true);
+  }, 2800);
+
+  panels.forEach(function(panel, i) {
+    panel.addEventListener('mouseenter', function() {
+      clearInterval(autoTimer);
+      if (i !== active) { active = i; applyLayout(true); }
+    });
+    panel.addEventListener('click', function() { window.location.href = 'gallery.html'; });
+    panel.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { window.location.href = 'gallery.html'; }
+      if (e.key === 'ArrowRight') { active = (active + 1) % count; applyLayout(true); e.preventDefault(); }
+      if (e.key === 'ArrowLeft')  { active = (active - 1 + count) % count; applyLayout(true); e.preventDefault(); }
+    });
+  });
+
+  var ro = new ResizeObserver(function() { setStatic(); });
+  ro.observe(root);
+})();
+</script>
 <script>
 /* ── City reveal — DISABLED ── */
 (function () {

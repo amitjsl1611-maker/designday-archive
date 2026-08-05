@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — DesignDay.co</title>
+<meta name="description" content="A visual archive of DesignDay events — five years of design community in India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/icon-180.png">
+<style>
+:root{
+  --paper:#FFFFFF;--paper-2:#F4F3F1;
+  --ink:#1A1916;--ink-2:#57564F;--ink-3:#8E8D85;
+  --accent:#E24866;--green:#2E8B23;
+  --line:rgba(26,25,22,.12);--line-2:rgba(26,25,22,.20);
+  --sans:'Schibsted Grotesk',sans-serif;--mono:'JetBrains Mono',monospace;
+  --gut:clamp(20px,5vw,80px);--nav-h:81px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+/* ── nav ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px var(--gut);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+}
+.brand-logo{height:53px;width:auto;display:block;}
+.nav-r{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);}
+.nav-link{font-size:15px;font-weight:500;color:var(--ink-2);transition:color .16s;}
+.nav-link:hover{color:var(--ink);}
+.nav-link.active{color:var(--accent);}
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;font-size:15.5px;font-weight:700;padding:10px 18px;transition:.22s var(--ease);}
+.btn-green{background:var(--green);color:#fff;}
+.btn-green:hover{background:#256f1c;}
+
+/* ── page header ── */
+.page-header{
+  text-align:center;
+  padding:clamp(56px,8vw,100px) var(--gut) clamp(56px,8vw,100px);
+}
+.page-eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:16px;
+}
+.page-title{
+  font-size:clamp(36px,5vw,64px);font-weight:600;
+  letter-spacing:-.03em;line-height:1.05;
+}
+
+/* ── bento grid ── */
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:clamp(120px,14vw,200px);
+  gap:10px;
+  padding:0 clamp(40px,8vw,140px) clamp(56px,8vw,100px);
+}
+
+/* bento cell sizes */
+.bento-cell{
+  border-radius:12px;overflow:hidden;cursor:pointer;
+  position:relative;
+}
+.bento-cell img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s var(--ease),filter .3s;
+}
+.bento-cell:hover img{transform:scale(1.04);filter:brightness(.88);}
+
+/* layout — 9 photos, 12 columns × 4 rows, no gaps */
+/* Row band 1–2 */
+.bento-cell:nth-child(1) { grid-column:1/8;  grid-row:1/3; } /* large landscape */
+.bento-cell:nth-child(2) { grid-column:8/13; grid-row:1/2; }
+.bento-cell:nth-child(3) { grid-column:8/13; grid-row:2/3; }
+/* Row band 3–4 */
+.bento-cell:nth-child(4) { grid-column:1/4;  grid-row:3/4; }
+.bento-cell:nth-child(5) { grid-column:4/9;  grid-row:3/5; } /* tall center */
+.bento-cell:nth-child(6) { grid-column:9/13; grid-row:3/4; }
+.bento-cell:nth-child(7) { grid-column:1/4;  grid-row:4/5; }
+.bento-cell:nth-child(8) { grid-column:9/11; grid-row:4/5; }
+.bento-cell:nth-child(9) { grid-column:11/13;grid-row:4/5; }
+
+/* ── modal ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(10,9,8,.85);backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:28px;padding:24px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease);
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+
+.modal-img-wrap{
+  max-width:min(900px,90vw);max-height:72vh;
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
+}
+.modal-img-wrap img{
+  width:100%;height:100%;object-fit:contain;
+  max-height:72vh;display:block;
+}
+
+.modal-controls{
+  display:flex;align-items:center;gap:20px;
+}
+.modal-arrow{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:48px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.25);color:#fff;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(6px);
+  transition:background .2s,border-color .2s;cursor:pointer;
+}
+.modal-arrow:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.5);}
+.modal-arrow svg{width:18px;height:18px;flex-shrink:0;}
+.modal-arrow.disabled{opacity:.25;pointer-events:none;}
+
+.modal-counter{
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:rgba(255,255,255,.55);min-width:60px;text-align:center;
+}
+
+.modal-close{
+  position:fixed;top:20px;right:24px;z-index:510;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08);backdrop-filter:blur(6px);
+  transition:background .2s,color .2s;
+}
+.modal-close:hover{background:rgba(255,255,255,.18);color:#fff;}
+.modal-close svg{width:16px;height:16px;}
+
+@media(max-width:700px){
+  .bento{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(140px,36vw,240px);}
+  .bento-cell{grid-column:span 1!important;grid-row:span 1!important;}
+  .bento-cell:nth-child(1),.bento-cell:nth-child(5){grid-column:span 2!important;}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html?skip" aria-label="DesignDay home">
+    <img class="brand-logo" src="assets/logo/designday-logo.png" alt="DesignDay" width="156" height="44">
+  </a>
+  <nav class="nav-r">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="gallery.html" class="nav-link active">Gallery</a>
+    <a href="contact.html" class="nav-link">Share Your Story</a>
+    <a href="events.html" class="btn btn-green">Browse the archive</a>
+  </nav>
+</header>
+
+<section class="page-header">
+  <p class="page-eyebrow">Five years · 35 editions · Three cities</p>
+  <h1 class="page-title">One Year in Review</h1>
+</section>
+
+<main class="bento" id="bento"></main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="modal-close" id="modalClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="modal-img-wrap"><img id="modalImg" src="" alt=""></div>
+  <div class="modal-controls">
+    <button class="modal-arrow" id="modalPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span class="modal-counter" id="modalCounter">1 / 9</span>
+    <button class="modal-arrow" id="modalNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var photos = [
+    { file: 'edition-2012-firstday.jpg', caption: 'First DesignDay, 2012' },
+    { file: 'edition-2013-rhythm.jpg',   caption: 'DesignDay 2013' },
+    { file: 'edition-2014-talk.jpg',     caption: 'DesignDay 2014' },
+    { file: 'edition-2015-mumbai.jpg',   caption: 'DesignDay Mumbai, 2015' },
+    { file: 'edition-2016-jam.jpg',      caption: 'DesignDay Jam, 2016' },
+    { file: 'edition-2017-behance.jpg',  caption: 'Behance Portfolio Review, 2017' },
+    { file: 'poster-general.jpg',        caption: 'DesignDay Poster' },
+    { file: 'poster-typography.jpg',     caption: 'Typography Edition' },
+    { file: 'poster-ethnography.png',    caption: 'Ethnography Edition' },
+  ];
+
+  var BASE = 'assets/photos/';
+  var bento = document.getElementById('bento');
+  var overlay = document.getElementById('modalOverlay');
+  var modalImg = document.getElementById('modalImg');
+  var modalCounter = document.getElementById('modalCounter');
+  var modalPrev = document.getElementById('modalPrev');
+  var modalNext = document.getElementById('modalNext');
+  var modalClose = document.getElementById('modalClose');
+  var current = 0;
+
+  /* build grid */
+  photos.forEach(function (p, i) {
+    var cell = document.createElement('div');
+    cell.className = 'bento-cell';
+    var img = document.createElement('img');
+    img.src = BASE + p.file;
+    img.alt = p.caption;
+    img.loading = 'lazy';
+    cell.appendChild(img);
+    cell.addEventListener('click', function () { openModal(i); });
+    bento.appendChild(cell);
+  });
+
+  /* modal */
+  function openModal(idx) {
+    current = idx;
+    update();
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function update() {
+    var p = photos[current];
+    modalImg.src = BASE + p.file;
+    modalImg.alt = p.caption;
+    modalCounter.textContent = (current + 1) + ' / ' + photos.length;
+    modalPrev.classList.toggle('disabled', current === 0);
+    modalNext.classList.toggle('disabled', current === photos.length - 1);
+  }
+
+  modalPrev.addEventListener('click', function () { if (current > 0) { current--; update(); } });
+  modalNext.addEventListener('click', function () { if (current < photos.length - 1) { current++; update(); } });
+  modalClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  { if (current > 0) { current--; update(); } }
+    if (e.key === 'ArrowRight') { if (current < photos.length - 1) { current++; update(); } }
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+</body>
+</html>
