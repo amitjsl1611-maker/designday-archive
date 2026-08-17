@@ -88,8 +88,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   border-right:1px solid var(--line);border-bottom:1px solid var(--line);
   display:flex;flex-direction:column;gap:6px;
 }
-.stat-cell:nth-child(2),.stat-cell:nth-child(4),.stat-cell:nth-child(6){border-right:none;}
-.stat-cell:nth-child(5),.stat-cell:nth-child(6){border-bottom:none;}
+.stat-cell:nth-child(2),.stat-cell:nth-child(4){border-right:none;}
+.stat-cell:nth-child(3),.stat-cell:nth-child(4){border-bottom:none;}
 .stat-num{
   font-size:clamp(36px,4vw,52px);font-weight:800;
   letter-spacing:-.04em;line-height:1;color:var(--ink);
@@ -278,7 +278,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <div class="page-header">
   <div class="page-eyebrow">About DesignDay</div>
   <h1 class="page-title">Built by volunteers.<br><span class="title-accent">Driven by community.</span></h1>
-  <p class="page-subtitle">A curated, free monthly design meetup that ran 35 editions across Bengaluru, Mumbai, and Delhi — from October 2012 to May 2017.</p>
+  <p class="page-subtitle">A curated, free monthly design meetup that ran 200+ editions across Bengaluru, Mumbai, and Delhi.</p>
 </div>
 
 <!-- WHAT -->
@@ -286,34 +286,26 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <div class="what-left">
     <div class="section-label">What</div>
     <h2>A room full of designers, every month.</h2>
-    <p>DesignDay was a curated monthly gathering for designers across disciplines. Each edition followed the same format: a design story to get inspired, a skill talk, a hands-on jam, then lunch and real conversation. Entry was ₹100 — just enough to keep it serious.</p>
+    <p>DesignDay was a curated monthly gathering for designers across disciplines. Each edition followed the same format: a design story to get inspired, a skill talk, a hands-on jam, then lunch and real conversation.</p>
     <p>No sponsors controlling the agenda. No sales pitches. Just designers getting better together.</p>
   </div>
   <div class="stats-grid">
     <div class="stats-box">
       <div class="stat-cell">
-        <div class="stat-num">35</div>
-        <div class="stat-lbl">Bangalore Editions</div>
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Cities</div>
       </div>
       <div class="stat-cell">
         <div class="stat-num">5</div>
         <div class="stat-lbl">Years Active</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">6,000<span class="plus">+</span></div>
+        <div class="stat-num">8,000<span class="plus">+</span></div>
         <div class="stat-lbl">Community Members</div>
       </div>
       <div class="stat-cell">
         <div class="stat-num">200<span class="plus">+</span></div>
         <div class="stat-lbl">Total Sessions</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">3</div>
-        <div class="stat-lbl">Cities</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">₹100</div>
-        <div class="stat-lbl">Entry Fee</div>
       </div>
     </div>
   </div>
@@ -341,7 +333,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 </section>
 
 <!-- POWERED BY VOLUNTEERS -->
-<section class="section-vol">
+<section class="section-vol" style="display:none">
   <div class="section-label">Powered by Volunteers</div>
   <div class="vol-tabs" id="volTabs">
     <button class="vol-tab active" data-city="bengaluru">Bengaluru</button>
