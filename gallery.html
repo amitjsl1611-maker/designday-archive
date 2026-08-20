@@ -1522,7 +1522,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
   }
 
   function update() {
-    var p = photos[current];
+    var p = encodePath(photos[current]);
     modalImg.src = p;
     modalImg.alt = 'DesignDay photo';
     modalCounter.textContent = (current + 1) + ' / ' + photos.length;
